@@ -1,0 +1,99 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "A · Svensk grotesk",
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 880
+    },
+    {
+      "file": "Redaktionell.dc.html",
+      "title": "B · Redaktionell",
+      "x": 1400,
+      "y": 0,
+      "w": 1280,
+      "h": 880
+    },
+    {
+      "file": "Teknisk.dc.html",
+      "title": "C · Teknisk precision",
+      "x": 2800,
+      "y": 0,
+      "w": 1280,
+      "h": 880
+    },
+    {
+      "file": "Typsnitt.dc.html",
+      "title": "Typsnitt jämförda",
+      "x": 0,
+      "y": 1030,
+      "w": 2000,
+      "h": 780
+    },
+    {
+      "file": "Rorelse.dc.html",
+      "title": "Rörelsemönster",
+      "x": 2140,
+      "y": 1030,
+      "w": 1940,
+      "h": 780
+    },
+    {
+      "file": "Geometriskt.dc.html",
+      "title": "C · geometriska val",
+      "x": 0,
+      "y": 2140,
+      "w": 2000,
+      "h": 660
+    }
+  ],
+  "annotations": [
+    {
+      "id": "intro",
+      "x": 0,
+      "y": -280,
+      "w": 560,
+      "text": "Tre riktningar för seria — modernare, hårdare typografi, mer rörelse.\n\nSamma innehåll och samma budskap i alla tre; det som skiljer är typsnitt, ljushet och hur rörelsen beter sig. Välj en så bygger jag om sajten efter den.\n\nHovra över knapparna — glansen och lyftet är hover, inte loop. Varje artboard har en Rörelse-växel om du vill se den stilla."
+    },
+    {
+      "id": "dir-a",
+      "x": 700,
+      "y": -280,
+      "w": 500,
+      "text": "A · SVENSK GROTESK\n\nFamiljen Grotesk, ritad i Stockholm av Letters from Sweden. Tät helgrotesk, ingen serif kvar. Rörelsen är stram: rader ur en mask, ett accentsvep, ett långsamt band.\n\nStyrka: mest samtida av de tre och den enda med en svensk historia att berätta.\nAvvägning: minst särskiljande i tystnad — grotesk på mörkt är vanligt i branschen."
+    },
+    {
+      "id": "dir-b",
+      "x": 1400,
+      "y": -280,
+      "w": 500,
+      "text": "B · REDAKTIONELL\n\nNewsreader i lätt vikt mot Archivo, på ljus botten. Behåller serifen men i ett betydligt mer förfinat snitt, med optisk storleksaxel.\n\nStyrka: ser dyrast ut och skiljer sig mest från konkurrenterna. Ordbytet i rubriken visar bredden i vad ni gör.\nAvvägning: ljus sajt betyder att kod och skärmdumpar behöver mer omsorg för att inte se ut som artiklar."
+    },
+    {
+      "id": "dir-c",
+      "x": 2800,
+      "y": -280,
+      "w": 500,
+      "text": "C · TEKNISK PRECISION\n\nBricolage Grotesque är utbytt mot Outfit — geometriskt, runt och öppet, med Geist i brödtext och JetBrains Mono i data. Layout, färg och rörelse står kvar.\n\nStyrka: säger 'vi bygger system, inte bara sajter' innan man läst ett ord, men i ett mjukare tonläge än förut.\nAvvägning: geometriska snitt är breda, så rubriken tål färre ord än A:s grotesk."
+    },
+    {
+      "id": "sheets",
+      "x": 0,
+      "y": 1860,
+      "w": 620,
+      "text": "Underlagen: typsnitten satta i samma ord och samma storlekar, med nuvarande uppsättning längst till vänster som jämförelse — och de sex rörelsemönster jag föreslår, alla på samma easing så sajten känns som en rörelse och inte tio.\n\nAllt utom bandet körs en gång vid inscroll. prefers-reduced-motion stänger av alltihop."
+    },
+    {
+      "id": "geo",
+      "x": 2100,
+      "y": 2140,
+      "w": 560,
+      "text": "Vill du byta inom den geometriska familjen visar bladet till vänster alla fyra i den riktiga rubriken. Säg bara vilket namn — det är ett ord att ändra.\n\nJag valde Outfit för att det ligger närmast det du bad om: rundare, öppnare, mjukare. Sora är närmast det som stod där förut om det ändå kändes rätt i attityden."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

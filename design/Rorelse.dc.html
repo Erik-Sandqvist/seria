@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Instrument+Sans:wght@400..600&family=Geist+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #ff5a1f; text-decoration: none; }
+    a:hover { color: #ff8551; }
+
+    .m-root { font-family: "Instrument Sans", "Helvetica Neue", Arial, sans-serif; }
+    .m-display { font-family: "Familjen Grotesk", Arial, sans-serif; font-weight: 700; letter-spacing: -0.04em; }
+    .m-mono { font-family: "Geist Mono", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.2em; }
+    .m-stage {
+      position: relative; overflow: hidden; height: 148px; border-radius: 9px;
+      background: #0c0f11; border: 1px solid #1b2226;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* 01 — maskad radavtäckning */
+    .m-mask { display: block; overflow: hidden; padding-bottom: 0.08em; }
+    .m-mask > span { display: block; animation: mUp 4.5s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+    @keyframes mUp {
+      0%, 6% { transform: translateY(112%); }
+      26%, 84% { transform: translateY(0); }
+      100% { transform: translateY(112%); }
+    }
+
+    /* 02 — ordvis intoning */
+    .m-word { display: inline-block; animation: mWord 4.5s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+    @keyframes mWord {
+      0%, 6% { opacity: 0; transform: translateY(16px); filter: blur(4px); }
+      28%, 84% { opacity: 1; transform: none; filter: blur(0); }
+      100% { opacity: 0; transform: translateY(16px); filter: blur(4px); }
+    }
+
+    /* 03 — rullande siffror */
+    .m-odo { display: inline-block; height: 1em; overflow: hidden; vertical-align: bottom; }
+    .m-odo > span { display: block; height: 1em; }
+    .m-r2 { animation: mR2 4.5s steps(2, end) infinite; }
+    @keyframes mR2 { 0% { transform: translateY(0); } 44%, 100% { transform: translateY(-2em); } }
+    .m-r4 { animation: mR4 4.5s steps(4, end) infinite; }
+    @keyframes mR4 { 0% { transform: translateY(0); } 52%, 100% { transform: translateY(-4em); } }
+
+    /* 04 — magnetisk knapp (hovra) */
+    .m-btn {
+      position: relative; overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    }
+    .m-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 14px 30px rgba(255, 90, 31, 0.28); }
+    .m-btn::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(100deg, transparent 22%, rgba(255, 255, 255, 0.5) 50%, transparent 78%);
+      transform: translateX(-130%);
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .m-btn:hover::after { transform: translateX(130%); }
+    .m-btn .m-arrow { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+    .m-btn:hover .m-arrow { transform: translateX(6px); }
+
+    /* 05 — sektionssvep */
+    .m-wipe { position: absolute; inset: 0; background: #f4f1ec; animation: mWipe 5s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+    @keyframes mWipe {
+      0%, 10% { transform: translateY(100%); }
+      36%, 62% { transform: translateY(0); }
+      88%, 100% { transform: translateY(-100%); }
+    }
+
+    /* 06 — kontinuerligt band */
+    .m-track { display: flex; gap: 34px; white-space: nowrap; animation: mTrack 14s linear infinite; }
+    @keyframes mTrack { to { transform: translateX(-50%); } }
+
+    .m-card { transition: border-color 0.3s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
+    .m-card:hover { border-color: #333e44; transform: translateY(-3px); }
+
+    .no-motion * { animation: none !important; }
+    .no-motion .m-mask > span, .no-motion .m-word { transform: none; opacity: 1; filter: none; }
+    .no-motion .m-r2 { transform: translateY(-2em); }
+    .no-motion .m-r4 { transform: translateY(-4em); }
+    .no-motion .m-wipe { transform: translateY(0); }
+  </style>
+</helmet>
+
+<div class="m-root {{motionClass}}" style="width: 1940px; height: 780px; background: #08090a; color: #f4f1ec; padding: 44px 52px; box-sizing: border-box; display: flex; flex-direction: column; gap: 30px">
+
+  <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px">
+    <div>
+      <div class="m-mono" style="font-size: 10.5px; color: #ff5a1f">Rörelse</div>
+      <div class="m-display" style="margin-top: 8px; font-size: 30px">Sex mönster, inte sextio</div>
+    </div>
+    <div style="max-width: 620px; font-size: 14.5px; line-height: 1.6; color: #98a3a9">
+      Alla utom bandet körs en gång när elementet scrollas in. Samma easing överallt — cubic-bezier(0.16, 1, 0.3, 1) — så sajten känns som en enda rörelse. Med <span class="m-mono" style="font-size: 11px; color: #f4f1ec">prefers-reduced-motion</span> stängs allt av.
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 20px; flex-grow: 1">
+
+    <div class="m-card" style="display: flex; flex-direction: column; gap: 14px; padding: 22px; border: 1px solid #1b2226; border-radius: 12px; background: #0a0c0e">
+      <div class="m-stage">
+        <div class="m-display" style="font-size: 32px; text-align: center">
+          <span class="m-mask"><span>Digitala lösningar,</span></span>
+          <span class="m-mask"><span style="animation-delay: 0.12s; color: #ff5a1f">byggda på allvar.</span></span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 16.5px">01 · Maskad radavtäckning</span>
+        <span class="m-mono" style="font-size: 9.5px; color: #6d797f">700 ms · 120 ms stagger</span>
+      </div>
+      <div style="font-size: 13.5px; line-height: 1.55; color: #8b979d">Rubriker. Varje rad glider upp bakom en osynlig kant — den enda rörelsen som får vara stor.</div>
+    </div>
+
+    <div class="m-card" style="display: flex; flex-direction: column; gap: 14px; padding: 22px; border: 1px solid #1b2226; border-radius: 12px; background: #0a0c0e">
+      <div class="m-stage">
+        <div style="font-size: 17px; line-height: 1.7; text-align: center; max-width: 330px; color: #cfd8dc">
+          <span class="m-word">Fast</span> <span class="m-word" style="animation-delay: 0.09s">pris</span> <span class="m-word" style="animation-delay: 0.18s">innan</span> <span class="m-word" style="animation-delay: 0.27s">vi</span> <span class="m-word" style="animation-delay: 0.36s">börjar,</span> <span class="m-word" style="animation-delay: 0.45s">tydlig</span> <span class="m-word" style="animation-delay: 0.54s">process.</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 16.5px">02 · Ordvis intoning</span>
+        <span class="m-mono" style="font-size: 9.5px; color: #6d797f">520 ms · 90 ms stagger</span>
+      </div>
+      <div style="font-size: 13.5px; line-height: 1.55; color: #8b979d">Ingresser och citat. Lätt oskärpa som klarnar — gör att texten läses i den takt den ska.</div>
+    </div>
+
+    <div class="m-card" style="display: flex; flex-direction: column; gap: 14px; padding: 22px; border: 1px solid #1b2226; border-radius: 12px; background: #0a0c0e">
+      <div class="m-stage">
+        <div class="m-display" style="font-size: 52px; color: #f4f1ec">
+          &lt;&nbsp;<span class="m-odo"><span class="m-r2"><span>0</span><span>1</span><span>2</span></span></span><span class="m-odo"><span class="m-r4"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span></span></span>&nbsp;<span style="color: #ff5a1f">h</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 16.5px">03 · Rullande siffror</span>
+        <span class="m-mono" style="font-size: 9.5px; color: #6d797f">900 ms · steps()</span>
+      </div>
+      <div style="font-size: 13.5px; line-height: 1.55; color: #8b979d">Sifferraden under hero och priserna. Mekaniskt hack i stället för mjuk uppräkning — läsbart hela vägen.</div>
+    </div>
+
+    <div class="m-card" style="display: flex; flex-direction: column; gap: 14px; padding: 22px; border: 1px solid #1b2226; border-radius: 12px; background: #0a0c0e">
+      <div class="m-stage">
+        <span class="m-btn" style="display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 30px; border-radius: 999px; background: #ff5a1f; color: #08090a; font-size: 15px; font-weight: 500">
+          Boka ett samtal
+          <svg class="m-arrow" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"></path></svg>
+        </span>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 16.5px">04 · Knapp med glans</span>
+        <span class="m-mono" style="font-size: 9.5px; color: #ff5a1f">hovra här</span>
+      </div>
+      <div style="font-size: 13.5px; line-height: 1.55; color: #8b979d">Alla primära knappar. Lyft, skugga, ljusstrimma och en pil som flyttar sig — fyra små saker, en gest.</div>
+    </div>
+
+    <div class="m-card" style="display: flex; flex-direction: column; gap: 14px; padding: 22px; border: 1px solid #1b2226; border-radius: 12px; background: #0a0c0e">
+      <div class="m-stage">
+        <div class="m-wipe" style="display: flex; align-items: center; justify-content: center">
+          <span class="m-display" style="font-size: 26px; color: #14100c">Så går det till.</span>
+        </div>
+        <span class="m-display" style="font-size: 26px; color: #f4f1ec">Vad vi står för</span>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 16.5px">05 · Sektionssvep</span>
+        <span class="m-mono" style="font-size: 9.5px; color: #6d797f">scrollstyrd</span>
+      </div>
+      <div style="font-size: 13.5px; line-height: 1.55; color: #8b979d">Övergången mörkt till ljust. Den ljusa sektionen skjuts upp över den mörka i stället för att bara ta vid.</div>
+    </div>
+
+    <div class="m-card" style="display: flex; flex-direction: column; gap: 14px; padding: 22px; border: 1px solid #1b2226; border-radius: 12px; background: #0a0c0e">
+      <div class="m-stage" style="justify-content: flex-start">
+        <div class="m-track">
+          <sc-for list="{{ticker}}" as="word" hint-placeholder-count="12">
+            <span class="m-mono" style="font-size: 12px; color: #8b979d">{{word}}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 16.5px">06 · Kontinuerligt band</span>
+        <span class="m-mono" style="font-size: 9.5px; color: #6d797f">26 s · linjär</span>
+      </div>
+      <div style="font-size: 13.5px; line-height: 1.55; color: #8b979d">Under hero. Enda rörelsen som aldrig stannar — långsam nog att läsas, inte snabb nog att störa.</div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"motion":{"editor":"boolean","default":true,"section":"Rörelse","tsType":"boolean"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const words = [
+      'Webbplatser', 'Webbappar', 'E-handel', 'Design & varumärke',
+      'Teknisk SEO', 'Drift & förvaltning',
+    ];
+    return {
+      motionClass: (this.props.motion ?? true) ? '' : 'no-motion',
+      ticker: words.concat(words),
+    };
+  }
+}
+</script>
+</body>
+</html>

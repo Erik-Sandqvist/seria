@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400..800&family=Geist:wght@400..600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #ff5a1f; text-decoration: none; }
+    a:hover { color: #ff8551; }
+
+    .c-root { font-family: "Geist", "Helvetica Neue", Arial, sans-serif; }
+    .c-display {
+      font-family: "Outfit", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 700; letter-spacing: -0.03em; line-height: 0.95;
+    }
+    .c-mono {
+      font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+      letter-spacing: 0.02em;
+    }
+    .c-tag { text-transform: uppercase; letter-spacing: 0.22em; }
+
+    /* Ljusstråle som sveper över överkanten */
+    .c-beam {
+      animation: cBeam 7s cubic-bezier(0.45, 0, 0.15, 1) infinite;
+    }
+    @keyframes cBeam {
+      0% { transform: translateX(-45%); opacity: 0; }
+      18% { opacity: 1; }
+      72% { opacity: 1; }
+      100% { transform: translateX(145%); opacity: 0; }
+    }
+
+    /* Rubrik i skalande skiktning */
+    .c-pop { animation: cPop 10s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+    @keyframes cPop {
+      0%, 3% { opacity: 0; transform: translateY(30px) scale(0.965); }
+      13%, 90% { opacity: 1; transform: none; }
+      100% { opacity: 0; transform: translateY(30px) scale(0.965); }
+    }
+
+    .c-slide { animation: cSlide 10s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+    @keyframes cSlide {
+      0%, 16% { opacity: 0; transform: translateX(22px); }
+      30%, 90% { opacity: 1; transform: none; }
+      100% { opacity: 0; transform: translateX(22px); }
+    }
+
+    /* Rullande siffror, som en mekanisk räknare */
+    .c-odo { display: inline-block; height: 1em; overflow: hidden; vertical-align: bottom; }
+    .c-odo > span { display: block; height: 1em; }
+    .c-d2 { animation: cD2 10s steps(2, end) infinite; }
+    @keyframes cD2 { 0% { transform: translateY(0); } 22%, 100% { transform: translateY(-2em); } }
+    .c-d4 { animation: cD4 10s steps(4, end) infinite; }
+    @keyframes cD4 { 0% { transform: translateY(0); } 26%, 100% { transform: translateY(-4em); } }
+
+    /* Pulserande statusprick i spec-panelen */
+    .c-dot { animation: cPulse 2.4s ease-in-out infinite; }
+    @keyframes cPulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(92, 225, 160, 0.5); }
+      50% { opacity: 0.65; box-shadow: 0 0 0 7px rgba(92, 225, 160, 0); }
+    }
+
+    .c-line { animation: cLineIn 10s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+    @keyframes cLineIn {
+      0%, 20% { opacity: 0; transform: translateY(8px); }
+      34%, 90% { opacity: 1; transform: none; }
+      100% { opacity: 0; transform: translateY(8px); }
+    }
+
+    .c-cta {
+      position: relative; overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .c-cta:hover { transform: translateY(-2px) scale(1.015); }
+    .c-cta::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.42) 50%, transparent 80%);
+      transform: translateX(-120%);
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .c-cta:hover::after { transform: translateX(120%); }
+
+    .c-card { transition: border-color 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .c-card:hover { border-color: #39434a; transform: translateY(-3px); }
+
+    .no-motion *, .no-motion *::before, .no-motion *::after { animation: none !important; }
+    .no-motion .c-pop, .no-motion .c-slide, .no-motion .c-line { opacity: 1; transform: none; }
+    .no-motion .c-d2 { transform: translateY(-2em); }
+    .no-motion .c-d4 { transform: translateY(-4em); }
+    .no-motion .c-beam { opacity: 0; }
+  </style>
+</helmet>
+
+<div class="c-root {{motionClass}}" style="width: 1280px; height: 880px; position: relative; overflow: hidden; background: #060708; color: #eef2f3">
+
+  <div aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.055; background-image: linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 64px 100%"></div>
+  <div aria-hidden="true" style="position: absolute; top: 0; left: 0; right: 0; height: 2px; overflow: hidden">
+    <div class="c-beam" style="width: 42%; height: 100%; background: linear-gradient(90deg, transparent, {{accent}}, transparent)"></div>
+  </div>
+  <div aria-hidden="true" style="position: absolute; bottom: -320px; left: 42%; width: 780px; height: 640px; border-radius: 50%; background: radial-gradient(circle, {{accent}} 0%, transparent 65%); opacity: 0.13; filter: blur(30px)"></div>
+
+  <div style="position: relative; display: flex; flex-direction: column; height: 100%">
+
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 24px 56px; border-bottom: 1px solid #171c1f">
+      <div style="display: flex; align-items: center; gap: 10px">
+        <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="6" y="19" width="4" height="7" rx="1.4" fill="#eef2f3"></rect>
+          <rect x="12" y="15" width="4" height="11" rx="1.4" fill="#eef2f3"></rect>
+          <rect x="18" y="11" width="4" height="15" rx="1.4" fill="#eef2f3"></rect>
+          <rect x="24" y="6" width="4" height="20" rx="1.4" fill="{{accent}}"></rect>
+        </svg>
+        <span class="c-display" style="font-size: 23px">seria<span style="color: {{accent}}">.</span></span>
+      </div>
+      <div class="c-mono" style="display: flex; align-items: center; gap: 26px; font-size: 12.5px; color: #77848a">
+        <span>tjänster</span><span>priser</span><span>process</span><span>case</span><span>om&nbsp;oss</span>
+      </div>
+      <span class="c-cta" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 22px; border-radius: 6px; background: {{accent}}; color: #060708; font-size: 14px; font-weight: 600">
+        Boka ett samtal
+      </span>
+    </div>
+
+    <div style="flex-grow: 1; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 56px; padding: 56px 56px 0">
+
+      <div style="display: flex; flex-direction: column; gap: 32px">
+        <div class="c-mono c-tag c-pop" style="font-size: 10.5px; color: {{accent}}">Webbstudio · Sverige</div>
+
+        <h1 class="c-display c-pop" style="margin: 0; font-size: 88px; animation-delay: 0.06s">
+          Digitala lösningar,<br>
+          <span style="color: {{accent}}">byggda på allvar.</span>
+        </h1>
+
+        <p class="c-pop" style="margin: 0; max-width: 545px; font-size: 17.5px; line-height: 1.62; color: #9aa6ab; animation-delay: 0.12s">
+          seria är en liten studio som bygger webbplatser och digitala verktyg åt företag som vill växa. Fast pris innan vi börjar, tydlig process och leverans på veckor — inte månader.
+        </p>
+
+        <div class="c-pop" style="display: flex; gap: 10px; animation-delay: 0.18s">
+          <span class="c-cta" style="display: inline-flex; align-items: center; height: 50px; padding: 0 26px; border-radius: 6px; background: {{accent}}; color: #060708; font-size: 15px; font-weight: 600">Boka ett samtal</span>
+          <span class="c-cta" style="display: inline-flex; align-items: center; height: 50px; padding: 0 26px; border-radius: 6px; border: 1px solid #262e33; color: #eef2f3; font-size: 15px">Se priser</span>
+        </div>
+      </div>
+
+      <div class="c-slide c-card" style="border: 1px solid #1c2226; border-radius: 10px; background: #0b0d0f; padding: 22px 24px; align-self: start">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid #171c1f">
+          <span class="c-mono c-tag" style="font-size: 9.5px; color: #77848a">Leveransspec</span>
+          <span style="display: flex; align-items: center; gap: 7px">
+            <span class="c-dot" style="width: 6px; height: 6px; border-radius: 50%; background: #5ce1a0"></span>
+            <span class="c-mono" style="font-size: 11px; color: #5ce1a0">öppen för uppdrag</span>
+          </span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0">
+          <sc-for list="{{spec}}" as="row" hint-placeholder-count="6">
+            <div class="c-line" style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid #14181b">
+              <span class="c-mono" style="font-size: 12px; color: #77848a">{{row.k}}</span>
+              <span class="c-mono" style="font-size: 12.5px; color: #eef2f3; text-align: right">{{row.v}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: #171c1f; margin-top: 44px; border-top: 1px solid #171c1f">
+      <div class="c-line" style="background: #060708; padding: 24px 28px; animation-delay: 0.2s">
+        <div class="c-display" style="font-size: 36px">2–3 v</div>
+        <div class="c-mono" style="margin-top: 6px; font-size: 11.5px; color: #77848a">typisk leveranstid</div>
+      </div>
+      <div class="c-line" style="background: #060708; padding: 24px 28px; animation-delay: 0.25s">
+        <div class="c-display" style="font-size: 36px">Fast</div>
+        <div class="c-mono" style="margin-top: 6px; font-size: 11.5px; color: #77848a">pris innan start</div>
+      </div>
+      <div class="c-line" style="background: #060708; padding: 24px 28px; animation-delay: 0.3s">
+        <div class="c-display" style="font-size: 36px">
+          &lt;&nbsp;<span class="c-odo"><span class="c-d2"><span>0</span><span>1</span><span>2</span></span></span><span class="c-odo"><span class="c-d4"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span></span></span>&nbsp;h
+        </div>
+        <div class="c-mono" style="margin-top: 6px; font-size: 11.5px; color: #77848a">svarstid på offert</div>
+      </div>
+      <div class="c-line" style="background: #060708; padding: 24px 28px; animation-delay: 0.35s">
+        <div class="c-display" style="font-size: 36px">100 %</div>
+        <div class="c-mono" style="margin-top: 6px; font-size: 11.5px; color: #77848a">egen kod, inga mallar</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#ff5a1f","options":["#ff5a1f","#e8ff45","#5ce1a0","#8c9dff"],"section":"Utseende"},"motion":{"editor":"boolean","default":true,"section":"Rörelse","tsType":"boolean"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#ff5a1f',
+      motionClass: (this.props.motion ?? true) ? '' : 'no-motion',
+      spec: [
+        { k: 'stack', v: 'Next.js · TypeScript' },
+        { k: 'leverans', v: '2–3 veckor' },
+        { k: 'pris', v: 'fast, ex moms' },
+        { k: 'laddtid', v: '< 1,0 s mobil' },
+        { k: 'tillgänglighet', v: 'WCAG 2.2 AA' },
+        { k: 'ägande', v: 'kunden, fullt ut' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

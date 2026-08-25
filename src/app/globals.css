@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   seria — designsystem
+   Mörk grund (ink), varm off-white (bone), en signalfärg (signal).
+   Allt färgbruk går via dessa tokens — ändra här, inte i komponenter.
+   --------------------------------------------------------------- */
+@theme {
+  --color-ink-950: #0a0d0e;
+  --color-ink-900: #101416;
+  --color-ink-850: #151b1e;
+  --color-ink-800: #1b2327;
+  --color-ink-700: #2b3439;
+  --color-ink-600: #3f4a50;
+  --color-ink-400: #7c8a91;
+  --color-ink-300: #a3aeb3;
+
+  --color-bone-50: #faf8f4;
+  --color-bone-100: #f3efe7;
+  --color-bone-200: #e6e0d3;
+  --color-bone-300: #d3cabb;
+  --color-bone-500: #8d8577;
+
+  --color-signal-500: #ff5a1f;
+  --color-signal-400: #ff7a45;
+  --color-signal-600: #e04510;
+
+  --color-pine-900: #0d3833;
+  --color-pine-500: #1f7a6f;
+
+  --font-display: var(--font-display), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  --text-display: clamp(2.75rem, 7vw, 5.5rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.03em;
+
+  --text-title: clamp(2rem, 4.2vw, 3.25rem);
+  --text-title--line-height: 1.05;
+  --text-title--letter-spacing: -0.02em;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-ink-950);
+  color: var(--color-bone-100);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-signal-500);
+  color: var(--color-ink-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Reveal-animation.
+   Stilarna gäller bara när <html> har klassen .js (sätts av ett litet
+   inline-skript i layouten). Utan JavaScript visas allt innehåll direkt. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
+}
+
+.js .reveal[data-reveal="in"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Fin, hårfin linje som används som sektionsavdelare */
+@utility hairline {
+  border-color: color-mix(in oklab, var(--color-bone-100) 12%, transparent);
+}

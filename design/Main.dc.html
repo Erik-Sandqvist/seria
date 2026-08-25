@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Instrument+Sans:wght@400..600&family=Geist+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #ff5a1f; text-decoration: none; }
+    a:hover { color: #ff8551; }
+
+    .a-root {
+      --ink: #08090a; --ink-2: #101315; --line: #1e2427;
+      --bone: #f4f1ec; --dim: #7d8a90;
+      font-family: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    }
+    .a-display {
+      font-family: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 700; letter-spacing: -0.045em; line-height: 0.92;
+    }
+    .a-mono {
+      font-family: "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
+      text-transform: uppercase; letter-spacing: 0.2em;
+    }
+
+    /* Rad för rad ur en mask — huvudrörelsen i den här riktningen */
+    .a-line { display: block; overflow: hidden; padding-bottom: 0.06em; }
+    .a-line > span {
+      display: block;
+      animation: aLineUp 9s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+    @keyframes aLineUp {
+      0%, 4% { transform: translateY(108%); }
+      14%, 90% { transform: translateY(0); }
+      100% { transform: translateY(108%); }
+    }
+
+    .a-sweep {
+      position: absolute; left: 0; bottom: 0.04em; height: 3px;
+      background: var(--accent, #ff5a1f); width: 100%;
+      transform-origin: left center;
+      animation: aSweep 9s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+    @keyframes aSweep {
+      0%, 20% { transform: scaleX(0); }
+      34%, 90% { transform: scaleX(1); }
+      100% { transform: scaleX(0); }
+    }
+
+    .a-fade { animation: aFade 9s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+    @keyframes aFade {
+      0%, 28% { opacity: 0; transform: translateY(14px); }
+      40%, 92% { opacity: 1; transform: none; }
+      100% { opacity: 0; transform: translateY(14px); }
+    }
+
+    /* Långsamt driftande sken bakom rubriken */
+    .a-aurora { animation: aDrift 24s ease-in-out infinite alternate; }
+    @keyframes aDrift {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(-90px, 40px, 0) scale(1.18); }
+    }
+
+    .a-track { display: flex; gap: 56px; animation: aTicker 26s linear infinite; }
+    @keyframes aTicker { to { transform: translateX(-50%); } }
+
+    .a-cta { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease; }
+    .a-cta:hover { transform: translateY(-2px); }
+    .a-cta .a-arrow { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+    .a-cta:hover .a-arrow { transform: translateX(5px); }
+
+    .a-navlink { position: relative; transition: color 0.2s ease; }
+    .a-navlink::after {
+      content: ""; position: absolute; left: 0; bottom: -6px; height: 1px; width: 100%;
+      background: currentColor; transform: scaleX(0); transform-origin: right center;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .a-navlink:hover { color: #f4f1ec; }
+    .a-navlink:hover::after { transform: scaleX(1); transform-origin: left center; }
+
+    .no-motion *, .no-motion *::before, .no-motion *::after { animation: none !important; }
+    .no-motion .a-line > span, .no-motion .a-fade { transform: none; opacity: 1; }
+    .no-motion .a-sweep { transform: scaleX(1); }
+  </style>
+</helmet>
+
+<div class="a-root {{motionClass}}" style="width: 1280px; height: 880px; position: relative; overflow: hidden; background: #08090a; color: #f4f1ec">
+
+  <div aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.05; background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(75% 65% at 42% 34%, #000 30%, transparent 100%)"></div>
+  <div aria-hidden="true" class="a-aurora" style="position: absolute; top: -220px; right: -120px; width: 820px; height: 620px; border-radius: 50%; background: radial-gradient(circle, {{accent}} 0%, transparent 62%); opacity: 0.16; filter: blur(24px)"></div>
+
+  <div style="position: relative; display: flex; flex-direction: column; height: 100%">
+
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 26px 64px; border-bottom: 1px solid #1e2427">
+      <div style="display: flex; align-items: center; gap: 11px">
+        <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="#161b1e"></rect>
+          <rect x="6" y="19" width="4" height="7" rx="1.4" fill="#f4f1ec"></rect>
+          <rect x="12" y="15" width="4" height="11" rx="1.4" fill="#f4f1ec"></rect>
+          <rect x="18" y="11" width="4" height="15" rx="1.4" fill="#f4f1ec"></rect>
+          <rect x="24" y="6" width="4" height="20" rx="1.4" fill="{{accent}}"></rect>
+        </svg>
+        <span class="a-display" style="font-size: 25px; letter-spacing: -0.05em">seria<span style="color: {{accent}}">.</span></span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 34px; font-size: 14.5px; color: #7d8a90">
+        <span class="a-navlink">Tjänster</span>
+        <span class="a-navlink">Priser</span>
+        <span class="a-navlink">Process</span>
+        <span class="a-navlink">Case</span>
+        <span class="a-navlink">Om oss</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 22px">
+        <span class="a-mono" style="font-size: 10.5px; color: #7d8a90">EN</span>
+        <span class="a-cta" style="display: inline-flex; align-items: center; gap: 9px; height: 46px; padding: 0 24px; border-radius: 999px; background: {{accent}}; color: #08090a; font-size: 14.5px; font-weight: 500">
+          Boka ett samtal
+          <svg class="a-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"></path></svg>
+        </span>
+      </div>
+    </div>
+
+    <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; gap: 40px; padding: 0 64px">
+      <div class="a-mono a-fade" style="font-size: 11px; color: {{accent}}">Webbstudio · Sverige</div>
+
+      <h1 class="a-display" style="margin: 0; font-size: 104px; max-width: 1010px">
+        <span class="a-line"><span style="animation-delay: 0s">Digitala lösningar,</span></span>
+        <span class="a-line" style="position: relative; display: inline-block">
+          <span style="animation-delay: 0.11s; padding-bottom: 0.09em">byggda på allvar.</span>
+          <span class="a-sweep" style="--accent: {{accent}}"></span>
+        </span>
+      </h1>
+
+      <p class="a-fade" style="margin: 0; max-width: 610px; font-size: 18.5px; line-height: 1.6; color: #a9b4b9; animation-delay: 0.05s">
+        seria är en liten studio som bygger webbplatser och digitala verktyg åt företag som vill växa. Fast pris innan vi börjar, tydlig process och leverans på veckor — inte månader.
+      </p>
+
+      <div class="a-fade" style="display: flex; gap: 12px; animation-delay: 0.12s">
+        <span class="a-cta" style="display: inline-flex; align-items: center; gap: 9px; height: 52px; padding: 0 28px; border-radius: 999px; background: {{accent}}; color: #08090a; font-size: 15px; font-weight: 500">
+          Boka ett samtal
+          <svg class="a-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"></path></svg>
+        </span>
+        <span class="a-cta" style="display: inline-flex; align-items: center; height: 52px; padding: 0 28px; border-radius: 999px; border: 1px solid #2b3236; color: #f4f1ec; font-size: 15px">Se priser</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: #1e2427; border-top: 1px solid #1e2427">
+      <div class="a-fade" style="background: #08090a; padding: 26px 30px; animation-delay: 0.18s">
+        <div class="a-display" style="font-size: 34px; letter-spacing: -0.03em">2–3 v</div>
+        <div style="margin-top: 5px; font-size: 13.5px; color: #7d8a90">typisk leveranstid</div>
+      </div>
+      <div class="a-fade" style="background: #08090a; padding: 26px 30px; animation-delay: 0.24s">
+        <div class="a-display" style="font-size: 34px; letter-spacing: -0.03em">Fast</div>
+        <div style="margin-top: 5px; font-size: 13.5px; color: #7d8a90">pris innan start</div>
+      </div>
+      <div class="a-fade" style="background: #08090a; padding: 26px 30px; animation-delay: 0.3s">
+        <div class="a-display" style="font-size: 34px; letter-spacing: -0.03em">&lt; 24 h</div>
+        <div style="margin-top: 5px; font-size: 13.5px; color: #7d8a90">svarstid på offert</div>
+      </div>
+      <div class="a-fade" style="background: #08090a; padding: 26px 30px; animation-delay: 0.36s">
+        <div class="a-display" style="font-size: 34px; letter-spacing: -0.03em">100 %</div>
+        <div style="margin-top: 5px; font-size: 13.5px; color: #7d8a90">egen kod, inga mallar</div>
+      </div>
+    </div>
+
+    <div style="overflow: hidden; border-top: 1px solid #1e2427; background: #0c0e10; padding: 15px 0">
+      <div class="a-track">
+        <sc-for list="{{ticker}}" as="word" hint-placeholder-count="12">
+          <span class="a-mono" style="font-size: 11px; color: #67747a; white-space: nowrap">{{word}}</span>
+        </sc-for>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#ff5a1f","options":["#ff5a1f","#e8ff45","#5ce1a0","#8c9dff"],"section":"Utseende"},"motion":{"editor":"boolean","default":true,"section":"Rörelse","tsType":"boolean"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const words = [
+      'Webbplatser', 'Webbappar', 'E-handel', 'Design & varumärke',
+      'Teknisk SEO', 'Drift & förvaltning',
+    ];
+    return {
+      accent: this.props.accent ?? '#ff5a1f',
+      motionClass: (this.props.motion ?? true) ? '' : 'no-motion',
+      // Dubblerad lista så bandet kan loopa sömlöst vid -50 %
+      ticker: words.concat(words),
+    };
+  }
+}
+</script>
+</body>
+</html>

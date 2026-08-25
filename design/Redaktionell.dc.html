@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,200..500&family=Archivo:wght@400..600&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #b8390f; text-decoration: none; }
+    a:hover { color: #8f2b09; }
+
+    .b-root { font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; }
+    .b-display {
+      font-family: "Newsreader", "Iowan Old Style", Georgia, serif;
+      font-weight: 300; font-optical-sizing: auto;
+      letter-spacing: -0.022em; line-height: 1.0;
+    }
+    .b-label {
+      font-family: "Archivo", Arial, sans-serif; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.19em;
+    }
+
+    /* Ordvis intoning — texten sätter sig ord för ord som i sätteri */
+    .b-word {
+      display: inline-block;
+      animation: bWord 11s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+    @keyframes bWord {
+      0%, 3% { opacity: 0; transform: translateY(26px); filter: blur(5px); }
+      13%, 92% { opacity: 1; transform: none; filter: blur(0); }
+      100% { opacity: 0; transform: translateY(26px); filter: blur(5px); }
+    }
+
+    /* Kinetiskt ordbyte i rubriken */
+    .b-swap { position: relative; display: inline-block; vertical-align: baseline; }
+    .b-swap > span {
+      position: absolute; left: 0; top: 0; white-space: nowrap;
+      opacity: 0; animation: bSwap 12s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+    .b-swap > span:first-child { position: static; }
+    @keyframes bSwap {
+      0%, 2% { opacity: 0; transform: translateY(0.42em); }
+      6%, 22% { opacity: 1; transform: none; }
+      26%, 100% { opacity: 0; transform: translateY(-0.36em); }
+    }
+
+    .b-rule {
+      transform-origin: left center;
+      animation: bRule 11s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+    @keyframes bRule {
+      0%, 8% { transform: scaleX(0); }
+      26%, 92% { transform: scaleX(1); }
+      100% { transform: scaleX(0); }
+    }
+
+    .b-rise { animation: bRise 11s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+    @keyframes bRise {
+      0%, 20% { opacity: 0; transform: translateY(20px); }
+      34%, 92% { opacity: 1; transform: none; }
+      100% { opacity: 0; transform: translateY(20px); }
+    }
+
+    .b-row { transition: background-color 0.3s ease, padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .b-row:hover { background: #ece7dc; padding-left: 14px; }
+    .b-row .b-num { transition: color 0.3s ease; }
+    .b-row:hover .b-num { color: var(--b-accent, #b8390f); }
+
+    .b-cta { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease; }
+    .b-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(20, 16, 12, 0.22); }
+
+    .no-motion *, .no-motion *::before, .no-motion *::after { animation: none !important; }
+    .no-motion .b-word, .no-motion .b-rise { opacity: 1; transform: none; filter: none; }
+    .no-motion .b-rule { transform: scaleX(1); }
+    .no-motion .b-swap > span { opacity: 0; }
+    .no-motion .b-swap > span:first-child { opacity: 1; transform: none; }
+  </style>
+</helmet>
+
+<div class="b-root {{motionClass}}" style="--b-accent: {{accent}}; width: 1280px; height: 880px; position: relative; overflow: hidden; background: #f7f4ee; color: #14100c">
+
+  <div aria-hidden="true" style="position: absolute; inset: 0; background-image: radial-gradient(58rem 30rem at 88% 8%, rgba(184, 57, 15, 0.09), transparent 62%)"></div>
+
+  <div style="position: relative; display: flex; flex-direction: column; height: 100%">
+
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 28px 72px">
+      <div style="display: flex; align-items: center; gap: 11px">
+        <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="6" y="19" width="4" height="7" rx="1.4" fill="#14100c"></rect>
+          <rect x="12" y="15" width="4" height="11" rx="1.4" fill="#14100c"></rect>
+          <rect x="18" y="11" width="4" height="15" rx="1.4" fill="#14100c"></rect>
+          <rect x="24" y="6" width="4" height="20" rx="1.4" fill="{{accent}}"></rect>
+        </svg>
+        <span class="b-display" style="font-size: 27px; font-weight: 400">seria<span style="color: {{accent}}">.</span></span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 30px; font-size: 14px; color: #57504a">
+        <span>Tjänster</span><span>Priser</span><span>Process</span><span>Case</span><span>Om oss</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 20px">
+        <span class="b-label" style="font-size: 10px; color: #8b8177">EN</span>
+        <span class="b-cta" style="display: inline-flex; align-items: center; height: 46px; padding: 0 24px; border-radius: 4px; background: #14100c; color: #f7f4ee; font-size: 14px; font-weight: 500">Boka ett samtal</span>
+      </div>
+    </div>
+
+    <div style="height: 1px; background: #d9d2c5; margin: 0 72px"></div>
+
+    <div style="flex-grow: 1; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 72px; padding: 60px 72px 0">
+
+      <div style="display: flex; flex-direction: column; gap: 34px">
+        <div class="b-label b-word" style="font-size: 10.5px; color: {{accent}}">Webbstudio · Sverige · Est. 2026</div>
+
+        <h1 class="b-display" style="margin: 0; font-size: 78px">
+          <span class="b-word" style="animation-delay: 0.02s">Digitala</span>
+          <span class="b-swap" style="animation-delay: 0.05s">
+            <span style="font-style: italic; color: {{accent}}">lösningar</span>
+            <span style="font-style: italic; color: {{accent}}; animation-delay: 3s">webbplatser</span>
+            <span style="font-style: italic; color: {{accent}}; animation-delay: 6s">system</span>
+            <span style="font-style: italic; color: {{accent}}; animation-delay: 9s">verktyg</span>
+          </span><span class="b-word" style="animation-delay: 0.05s">,</span>
+          <br>
+          <span class="b-word" style="animation-delay: 0.09s">byggda</span>
+          <span class="b-word" style="animation-delay: 0.12s">på</span>
+          <span class="b-word" style="animation-delay: 0.15s">allvar.</span>
+        </h1>
+
+        <div class="b-rule" style="height: 1px; background: #14100c; width: 100%"></div>
+
+        <p class="b-rise" style="margin: 0; max-width: 560px; font-size: 18px; line-height: 1.65; color: #4a423b">
+          seria är en liten studio som bygger webbplatser och digitala verktyg åt företag som vill växa. Fast pris innan vi börjar, tydlig process och leverans på veckor — inte månader.
+        </p>
+
+        <div class="b-rise" style="display: flex; gap: 12px; animation-delay: 0.08s">
+          <span class="b-cta" style="display: inline-flex; align-items: center; height: 52px; padding: 0 28px; border-radius: 4px; background: {{accent}}; color: #fff; font-size: 15px; font-weight: 500">Boka ett samtal</span>
+          <span class="b-cta" style="display: inline-flex; align-items: center; height: 52px; padding: 0 28px; border-radius: 4px; border: 1px solid #c9c0b1; font-size: 15px">Se priser</span>
+        </div>
+      </div>
+
+      <div class="b-rise" style="display: flex; flex-direction: column; gap: 0; border-left: 1px solid #d9d2c5; padding-left: 40px; animation-delay: 0.14s">
+        <div class="b-label" style="font-size: 10px; color: #8b8177; padding-bottom: 18px">Vad vi gör</div>
+        <sc-for list="{{services}}" as="row" hint-placeholder-count="6">
+          <div class="b-row" style="display: flex; align-items: baseline; gap: 16px; padding: 15px 0; border-top: 1px solid #e4ded1">
+            <span class="b-num b-label" style="font-size: 10px; color: #b0a698">{{row.n}}</span>
+            <span class="b-display" style="font-size: 25px; font-weight: 400">{{row.name}}</span>
+          </div>
+        </sc-for>
+        <div style="border-top: 1px solid #e4ded1"></div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; padding: 40px 72px 42px; margin-top: 24px; border-top: 1px solid #d9d2c5">
+      <div class="b-rise" style="animation-delay: 0.2s"><span class="b-display" style="font-size: 40px">2–3</span><span class="b-label" style="font-size: 10px; color: #8b8177; margin-left: 8px">veckor</span><div style="margin-top: 4px; font-size: 13px; color: #6b6259">typisk leveranstid</div></div>
+      <div class="b-rise" style="animation-delay: 0.25s"><span class="b-display" style="font-size: 40px">Fast</span><div style="margin-top: 4px; font-size: 13px; color: #6b6259">pris innan start</div></div>
+      <div class="b-rise" style="animation-delay: 0.3s"><span class="b-display" style="font-size: 40px">24</span><span class="b-label" style="font-size: 10px; color: #8b8177; margin-left: 8px">timmar</span><div style="margin-top: 4px; font-size: 13px; color: #6b6259">svarstid på offert</div></div>
+      <div class="b-rise" style="animation-delay: 0.35s"><span class="b-display" style="font-size: 40px">100 %</span><div style="margin-top: 4px; font-size: 13px; color: #6b6259">egen kod, inga mallar</div></div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#b8390f","options":["#b8390f","#14100c","#2f5d4f","#7a3b8f"],"section":"Utseende"},"motion":{"editor":"boolean","default":true,"section":"Rörelse","tsType":"boolean"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#b8390f',
+      motionClass: (this.props.motion ?? true) ? '' : 'no-motion',
+      services: [
+        { n: '01', name: 'Webbplatser' },
+        { n: '02', name: 'Webbappar & system' },
+        { n: '03', name: 'E-handel' },
+        { n: '04', name: 'Design & varumärke' },
+        { n: '05', name: 'SEO & mätning' },
+        { n: '06', name: 'Drift & förvaltning' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
