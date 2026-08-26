@@ -53,6 +53,120 @@ const en: Dictionary = {
       description:
         "Tell us about your project and we will come back within 24 hours with a fixed price.",
     },
+    privacy: {
+      title: "Privacy policy",
+      description:
+        "What personal data we process, why, for how long — and what rights you have.",
+    },
+    terms: {
+      title: "Terms",
+      description: "The terms for this website and for working with seria.",
+    },
+  },
+
+  legal: {
+    updatedLabel: "Last updated",
+    backLabel: "Back to the home page",
+    privacy: {
+      title: "Privacy policy",
+      intro:
+        "We collect as little as possible and never pass anything on. This page describes exactly what happens to the details you give us.",
+      sections: [
+        {
+          h: "Who is responsible",
+          body: [
+            `${site.legalName}, company reg. no. [REPLACE], is the data controller for the processing described here. Contact us at ${site.email} with any questions, or to exercise any of your rights.`,
+          ],
+        },
+        {
+          h: "What we process",
+          body: [
+            "If you send the contact form we process your name, email address and message, plus company, phone number, project type and budget if you fill those in. None of those extra fields are required — only name, email and message.",
+            "If you email or call us directly, we process whatever you choose to share in that contact.",
+          ],
+        },
+        {
+          h: "Why, and on what basis",
+          body: [
+            "The details are used solely to answer your enquiry and to be able to quote. The legal basis is legitimate interest: you contacted us, and we have a legitimate interest in being able to reply.",
+            "If it turns into a project, the details are then processed to perform the contract with you, and to the extent Swedish accounting law requires.",
+          ],
+        },
+        {
+          h: "How long we keep them",
+          body: [
+            "Enquiries that do not lead to work are deleted no later than twelve months after the last contact. If it becomes a project, records relating to the business are kept for as long as accounting law requires — currently seven years.",
+          ],
+        },
+        {
+          h: "Who else sees them",
+          body: [
+            `Form emails are sent via ${site.emailProvider}, and the site is hosted with ${site.hostingProvider}. Both act as our data processors and handle the details only on our instructions.`,
+            "Both providers may process data outside the EU/EEA. Where that happens, the transfer relies on the European Commission's standard contractual clauses. [REPLACE if you change provider — check what applies with the new one.]",
+            "Beyond that we do not share your details with anyone, and we never sell them.",
+          ],
+        },
+        {
+          h: "Cookies and analytics",
+          body: [
+            "This website sets no cookies and runs no visitor analytics. There is nothing to consent to, and therefore no cookie banner.",
+            "[REPLACE: if you add analytics later, this text must be rewritten and a consent banner added.]",
+          ],
+        },
+        {
+          h: "Your rights",
+          body: [
+            "You have the right to know what data we hold about you, to have it corrected or erased, to object to the processing, to request restriction, and to receive it in a machine-readable format.",
+            `Get in touch at ${site.email} and we will sort it out. If you believe we are handling your data incorrectly, you have the right to complain to the Swedish Authority for Privacy Protection (IMY), imy.se.`,
+          ],
+        },
+      ],
+    },
+    terms: {
+      title: "Terms",
+      intro:
+        "The terms below cover this website. The terms for an individual project are always set out in the quote you approve — that takes precedence over this page.",
+      sections: [
+        {
+          h: "About the content",
+          body: [
+            "We keep the content on this site current as best we can, but give no guarantee that everything is accurate or complete at any given moment.",
+            "Prices shown exclude VAT and cover what is described in each package. They are indicative: a binding price comes only in a written quote.",
+          ],
+        },
+        {
+          h: "When an agreement is formed",
+          body: [
+            "Nothing on this site is a binding offer. An agreement is formed only once you have approved a quote from us in writing.",
+          ],
+        },
+        {
+          h: "Copyright",
+          body: [
+            `Text, images, code and design on this website belong to ${site.legalName} unless stated otherwise. You are welcome to link here and to quote with attribution, but not to republish the content as your own.`,
+            "Material we produce in a project transfers to the client as set out in the quote — normally once the final invoice is paid.",
+          ],
+        },
+        {
+          h: "Links to others",
+          body: [
+            "The site may link on to services we do not control. We are not responsible for the content there.",
+          ],
+        },
+        {
+          h: "Liability",
+          body: [
+            "We are not liable for loss arising from your use of the information on this website. Our liability in a project is governed by the quote, and is limited there to the amount you paid for that project.",
+          ],
+        },
+        {
+          h: "Governing law",
+          body: [
+            "Swedish law applies. Disputes are settled by the Swedish general courts, unless we agree otherwise.",
+          ],
+        },
+      ],
+    },
   },
 
   hero: {

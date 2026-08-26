@@ -85,10 +85,24 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-ink-850 pt-8 text-xs text-ink-400 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-ink-850 pt-8 text-xs text-ink-400 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.legalName}. {dict.footer.rights}
           </p>
+          <nav aria-label={dict.footer.legalTitle} className="flex gap-5">
+            <Link
+              href={href(locale, "privacy")}
+              className="transition-colors hover:text-signal-500"
+            >
+              {dict.footer.privacy}
+            </Link>
+            <Link
+              href={href(locale, "terms")}
+              className="transition-colors hover:text-signal-500"
+            >
+              {dict.footer.terms}
+            </Link>
+          </nav>
           <p className="font-mono uppercase tracking-[0.16em]">
             {dict.footer.builtWith}
           </p>

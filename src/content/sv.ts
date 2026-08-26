@@ -52,6 +52,120 @@ const sv = {
       description:
         "Berätta om ditt projekt så återkommer vi inom 24 timmar med ett fast pris.",
     },
+    privacy: {
+      title: "Integritetspolicy",
+      description:
+        "Vilka personuppgifter vi behandlar, varför, hur länge — och vilka rättigheter du har.",
+    },
+    terms: {
+      title: "Villkor",
+      description: "Villkoren för den här webbplatsen och för uppdrag hos seria.",
+    },
+  },
+
+  legal: {
+    updatedLabel: "Senast uppdaterad",
+    backLabel: "Till startsidan",
+    privacy: {
+      title: "Integritetspolicy",
+      intro:
+        "Vi samlar in så lite som möjligt och säljer aldrig vidare något. Den här sidan beskriver exakt vad som händer med de uppgifter du lämnar.",
+      sections: [
+        {
+          h: "Vem som ansvarar",
+          body: [
+            `${site.legalName}, org.nr [BYT UT], är personuppgiftsansvarig för behandlingen som beskrivs här. Kontakta oss på ${site.email} om du har frågor eller vill utöva någon av dina rättigheter.`,
+          ],
+        },
+        {
+          h: "Vilka uppgifter vi behandlar",
+          body: [
+            "Skickar du kontaktformuläret behandlar vi namn, mejladress och meddelande, samt företag, telefonnummer, projekttyp och budget om du fyller i dem. Inget av de fälten är obligatoriskt utöver namn, mejladress och meddelande.",
+            "Mejlar eller ringer du oss direkt behandlar vi de uppgifter du själv lämnar i den kontakten.",
+          ],
+        },
+        {
+          h: "Varför, och med vilket stöd",
+          body: [
+            "Uppgifterna används enbart för att besvara din förfrågan och för att kunna lämna en offert. Den rättsliga grunden är berättigat intresse: du har hört av dig till oss, och vi har ett berättigat intresse av att kunna svara.",
+            "Blir det ett uppdrag behandlas uppgifterna därefter för att fullgöra avtalet med dig, och i den utsträckning bokföringslagen kräver det.",
+          ],
+        },
+        {
+          h: "Hur länge vi sparar dem",
+          body: [
+            "Förfrågningar som inte leder till uppdrag raderas senast tolv månader efter senaste kontakt. Blir det ett uppdrag sparas underlag som rör affären så länge bokföringslagen kräver, för närvarande sju år.",
+          ],
+        },
+        {
+          h: "Vilka mer som ser dem",
+          body: [
+            `Formulärmejlen skickas via ${site.emailProvider} och webbplatsen driftas hos ${site.hostingProvider}. Båda är personuppgiftsbiträden åt oss och behandlar uppgifterna enbart på våra instruktioner.`,
+            "Båda leverantörerna kan behandla uppgifter utanför EU/EES. Överföringen sker i så fall med stöd av EU-kommissionens standardavtalsklausuler. [BYT UT om du byter leverantör — kontrollera vad som gäller hos den nya.]",
+            "I övrigt lämnar vi inte ut dina uppgifter till någon, och vi säljer dem aldrig vidare.",
+          ],
+        },
+        {
+          h: "Kakor och mätning",
+          body: [
+            "Den här webbplatsen sätter inga kakor och använder ingen besöksmätning. Det finns inget att samtycka till, och därför ingen kakruta.",
+            "[BYT UT: lägger du till analysverktyg senare måste den här texten skrivas om och en samtyckesruta läggas till.]",
+          ],
+        },
+        {
+          h: "Dina rättigheter",
+          body: [
+            "Du har rätt att få veta vilka uppgifter vi har om dig, att få dem rättade eller raderade, att invända mot behandlingen, att begära begränsning och att få ut dem i ett maskinläsbart format.",
+            `Hör av dig till ${site.email} så löser vi det. Tycker du att vi hanterar dina uppgifter felaktigt har du rätt att klaga till Integritetsskyddsmyndigheten, imy.se.`,
+          ],
+        },
+      ],
+    },
+    terms: {
+      title: "Villkor",
+      intro:
+        "Villkoren nedan gäller den här webbplatsen. Villkoren för ett enskilt uppdrag står alltid i den offert du godkänner — den gäller före det som står här.",
+      sections: [
+        {
+          h: "Om innehållet",
+          body: [
+            "Vi håller innehållet på sajten aktuellt så gott vi kan, men lämnar inga garantier för att allt är korrekt eller fullständigt vid varje tidpunkt.",
+            "Priserna som anges är exklusive moms och gäller det som beskrivs i respektive paket. De är riktpriser: bindande pris får du först i en skriftlig offert.",
+          ],
+        },
+        {
+          h: "När ett avtal uppstår",
+          body: [
+            "Ingenting på den här sajten är ett bindande erbjudande. Ett avtal uppstår först när du skriftligen godkänt en offert från oss.",
+          ],
+        },
+        {
+          h: "Upphovsrätt",
+          body: [
+            `Text, bilder, kod och formgivning på den här webbplatsen tillhör ${site.legalName} om inget annat anges. Du får gärna länka hit och citera med källhänvisning, men inte återpublicera innehållet som ditt eget.`,
+            "Material vi tar fram i ett uppdrag övergår till kunden enligt vad som står i offerten — normalt när slutfakturan är betald.",
+          ],
+        },
+        {
+          h: "Länkar till andra",
+          body: [
+            "Sajten kan länka vidare till tjänster vi inte råder över. Vi ansvarar inte för innehållet där.",
+          ],
+        },
+        {
+          h: "Ansvar",
+          body: [
+            "Vi ansvarar inte för skada som uppstår av att du använt informationen på den här webbplatsen. Vårt ansvar i ett uppdrag regleras i offerten och är där begränsat till det belopp du betalat för uppdraget.",
+          ],
+        },
+        {
+          h: "Tillämplig lag",
+          body: [
+            "Svensk lag gäller. Tvister avgörs av svensk allmän domstol, om vi inte kommer överens om något annat.",
+          ],
+        },
+      ],
+    },
   },
 
   hero: {

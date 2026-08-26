@@ -116,7 +116,7 @@ Färger, typsnitt och typografiska skalor är tokens i `@theme`-blocket överst 
 
 - **ink** — mörk grund, `ink-950` är sidans botten
 - **bone** — varm off-white för text och ljusa sektioner
-- **signal** — orange accent, används sparsamt: knappar, siffror, understrykningar
+- **signal** — tallgrön accent, används sparsamt: knappar, siffror, understrykningar
 - Rubriker i Familjen Grotesk 700, brödtext i Instrument Sans, etiketter i Geist Mono
 - Tätheten trappas med storleken: -0.045em i display, -0.038em i title,
   -0.022em i övrigt. Reglerna ligger utanför Tailwinds lager i `globals.css`

@@ -34,18 +34,18 @@ och [`src/app/icon.svg`](../src/app/icon.svg).
 
 | Roll | Namn | Hex | Används till |
 | --- | --- | --- | --- |
-| Grund | `ink-950` | `#0a0d0e` | Sidans botten |
-| Grund, alt | `ink-900` | `#101416` | Varannan sektion, kort |
-| Linjer | `ink-800` | `#1b2327` | Ramar och avdelare |
-| Dämpad text | `ink-400` | `#7c8a91` | Etiketter, bildtexter |
+| Grund | `ink-950` | `#12171a` | Sidans botten |
+| Grund, alt | `ink-900` | `#191f22` | Varannan sektion, kort |
+| Linjer | `ink-800` | `#273035` | Ramar och avdelare |
+| Dämpad text | `ink-400` | `#93a0a7` | Etiketter, bildtexter |
 | Brödtext | `bone-100` | `#f3efe7` | Text på mörk botten |
 | Ljus sektion | `bone-100` / `bone-50` | `#f3efe7` / `#faf8f4` | Process och case |
-| Accent | `signal-500` | `#ff5a1f` | Knappar, siffror, punkten |
+| Accent | `signal-500` | `#2fa98f` | Knappar, siffror, punkten |
 | Djup | `pine-500` | `#1f7a6f` | Sparsamt, i bakgrundssken |
 
-**Regeln för accentfärgen:** högst en orange yta per skärmbild. Blir det två
-konkurrerar de och ingen av dem drar blicken. Orange på `ink-950` och svart
-text på orange har båda god kontrast — behåll de kombinationerna.
+**Regeln för accentfärgen:** högst en accentyta per skärmbild. Blir det två
+konkurrerar de och ingen av dem drar blicken. Tall på `ink-950` och mörk
+text på tall ligger båda på ~6:1 — behåll de kombinationerna.
 
 ## Typografi
 

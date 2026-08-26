@@ -23,6 +23,12 @@ export const site = {
   },
   /** Mottagare för kontaktformuläret. Faller tillbaka på site.email. */
   inboxEmail: "",
+  /** Visas som "senast uppdaterad" på integritetspolicy och villkor. */
+  legalUpdated: "2026-08-26",
+  /** Var sajten driftas — nämns i integritetspolicyn. BYT UT vid annan värd. */
+  hostingProvider: "Vercel Inc.",
+  /** Tjänsten som skickar formulärmejlen. BYT UT om du byter leverantör. */
+  emailProvider: "Resend",
 } as const;
 
 export const team = [

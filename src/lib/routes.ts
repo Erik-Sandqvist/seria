@@ -15,6 +15,8 @@ export const pageSlugs = {
   work: { sv: "case", en: "work" },
   about: { sv: "om-oss", en: "about" },
   contact: { sv: "kontakt", en: "contact" },
+  privacy: { sv: "integritetspolicy", en: "privacy" },
+  terms: { sv: "villkor", en: "terms" },
 } as const satisfies Record<string, Record<Locale, string>>;
 
 export type PageKey = keyof typeof pageSlugs;

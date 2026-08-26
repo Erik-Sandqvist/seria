@@ -6,6 +6,7 @@ import { ContactPanel } from "@/sections/ContactPanel";
 import { CtaBand } from "@/sections/CtaBand";
 import { Faq } from "@/sections/Faq";
 import { Hero } from "@/sections/Hero";
+import { Legal } from "@/sections/Legal";
 import { Manifesto } from "@/sections/Manifesto";
 import { Pricing } from "@/sections/Pricing";
 import { ProcessSteps } from "@/sections/ProcessSteps";
@@ -89,6 +90,14 @@ function ContactView({ locale, dict }: ViewProps) {
   );
 }
 
+function PrivacyView({ dict }: ViewProps) {
+  return <Legal dict={dict} doc={dict.legal.privacy} />;
+}
+
+function TermsView({ dict }: ViewProps) {
+  return <Legal dict={dict} doc={dict.legal.terms} />;
+}
+
 export const views: Record<PageKey, ComponentType<ViewProps>> = {
   home: HomeView,
   services: ServicesView,
@@ -97,4 +106,6 @@ export const views: Record<PageKey, ComponentType<ViewProps>> = {
   work: WorkView,
   about: AboutView,
   contact: ContactView,
+  privacy: PrivacyView,
+  terms: TermsView,
 };

@@ -14,7 +14,7 @@ export function CtaBand({ locale, dict }: { locale: Locale; dict: Dictionary }) 
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(45rem 22rem at 50% 120%, rgba(255,90,31,0.20), transparent 65%)",
+            "radial-gradient(45rem 22rem at 50% 120%, color-mix(in oklab, var(--color-signal-500) 26%, transparent), transparent 65%)",
         }}
       />
       <Container className="relative py-24 sm:py-32">
