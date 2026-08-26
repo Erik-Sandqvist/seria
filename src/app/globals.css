@@ -28,17 +28,17 @@
   --color-pine-900: #0d3833;
   --color-pine-500: #1f7a6f;
 
-  --font-display: var(--font-display), "Iowan Old Style", Georgia, serif;
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-display: var(--font-display-src), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-body-src), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-src), ui-monospace, "SFMono-Regular", monospace;
 
+  /* Teckenmellanrummet sätts inte här utan på .font-display längre ned —
+     grotesken behöver olika täthet på olika storleksnivåer. */
   --text-display: clamp(2.75rem, 7vw, 5.5rem);
-  --text-display--line-height: 0.98;
-  --text-display--letter-spacing: -0.03em;
+  --text-display--line-height: 0.95;
 
   --text-title: clamp(2rem, 4.2vw, 3.25rem);
-  --text-title--line-height: 1.05;
-  --text-title--letter-spacing: -0.02em;
+  --text-title--line-height: 1.0;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -87,6 +87,123 @@ body {
   transform: none;
 }
 
+/* ---------------------------------------------------------------
+   Typografi — Familjen Grotesk bär rubrikerna i halvfet.
+   Reglerna ligger utanför Tailwinds lager och vinner därför över
+   storleksverktygen; tätheten trappas med storleken.
+   --------------------------------------------------------------- */
+.font-display {
+  font-weight: 700;
+  letter-spacing: -0.022em;
+}
+
+.font-display.text-title {
+  letter-spacing: -0.038em;
+}
+
+.font-display.text-display {
+  letter-spacing: -0.045em;
+}
+
+/* ---------------------------------------------------------------
+   Rörelse — sex mönster, alla på samma easing.
+   --------------------------------------------------------------- */
+
+/* 01 · Maskad radavtäckning. Raden glider upp bakom en osynlig kant.
+   .mask-host stänger av blockets egen intoning så att bara raderna rör sig. */
+.js .reveal.mask-host {
+  opacity: 1;
+  transform: none;
+}
+
+.line-mask.is-inline {
+  display: inline-block;
+  position: relative;
+}
+
+.line-mask {
+  display: block;
+  overflow: hidden;
+  /* Luft för underhängare (g, y, p) som annars kapas av masken.
+     Uppmätt: vid 88 px lämnar 0.18em ~7 px marginal under bläcket. */
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+}
+
+.js .reveal.mask-host .line-mask > span {
+  display: block;
+  transform: translateY(115%);
+  transition: transform 0.75s var(--ease-out-expo);
+}
+
+.js .reveal.mask-host[data-reveal="in"] .line-mask > span {
+  transform: none;
+}
+
+/* 02 · Accentsvep under den betonade raden */
+.sweep {
+  position: absolute;
+  left: 0;
+  bottom: 0.06em;
+  height: 3px;
+  width: 100%;
+  background-color: var(--color-signal-500);
+  transform-origin: left center;
+}
+
+.js .reveal .sweep {
+  transform: scaleX(0);
+  transition: transform 0.8s var(--ease-out-expo) 0.4s;
+}
+
+.js .reveal[data-reveal="in"] .sweep {
+  transform: scaleX(1);
+}
+
+/* 03 · Långsamt driftande sken bakom hero */
+.aurora {
+  animation: aurora 24s ease-in-out infinite alternate;
+}
+
+@keyframes aurora {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-80px, 36px, 0) scale(1.16); }
+}
+
+/* 04 · Kontinuerligt band. Listan är dubblerad, så -50 % loopar sömlöst. */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 34s linear infinite;
+}
+
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+/* 05 · Navigationslänk med svepande understrykning */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 1px;
+  width: 100%;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -94,6 +211,12 @@ body {
   .js .reveal {
     opacity: 1;
     transform: none;
+  }
+  .js .reveal.mask-host .line-mask > span {
+    transform: none;
+  }
+  .js .reveal .sweep {
+    transform: scaleX(1);
   }
   *,
   *::before,

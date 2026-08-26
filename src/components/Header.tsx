@@ -80,7 +80,7 @@ export function Header({
               href={href(locale, item.page)}
               aria-current={current === item.page ? "page" : undefined}
               className={cn(
-                "text-sm transition-colors",
+                "nav-link text-sm transition-colors",
                 current === item.page
                   ? "text-bone-50"
                   : "text-ink-300 hover:text-bone-50",

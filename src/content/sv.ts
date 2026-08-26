@@ -32,7 +32,7 @@ const sv = {
     pricing: {
       title: "Priser",
       description:
-        "Fasta priser utan överraskningar. Landningssida från 1  kr, komplett företagssajt från 2  kr.",
+        "Fasta priser utan överraskningar. Landningssida från 14\u00a0900 kr, komplett företagssajt från 29\u00a0900 kr.",
     },
     process: {
       title: "Process",
@@ -209,7 +209,7 @@ const sv = {
       {
         id: "start",
         name: "Start",
-        price: "1  kr",
+        price: "14\u00a0900 kr",
         priceNote: "ex moms",
         popular: false,
         tagline: "En stark sida som gör en sak riktigt bra.",
@@ -228,7 +228,7 @@ const sv = {
       {
         id: "studio",
         name: "Studio",
-        price: "2  kr",
+        price: "29\u00a0900 kr",
         priceNote: "ex moms",
         popular: true,
         tagline: "En komplett företagssajt du kan växa i.",
@@ -248,7 +248,7 @@ const sv = {
       {
         id: "skala",
         name: "Skala",
-        price: "Från 5  kr",
+        price: "Från 59\u00a0000 kr",
         priceNote: "offert per projekt",
         popular: false,
         tagline: "När det inte är en sajt utan ett system.",
@@ -268,27 +268,27 @@ const sv = {
     addons: [
       {
         name: "Visuell identitet",
-        price: "1  kr",
+        price: "12\u00a0000 kr",
         note: "Logotyp, färg, typografi och riktlinjer",
       },
       {
         name: "Enbart logotyp",
-        price: "  kr",
+        price: "6\u00a0000 kr",
         note: "Tre förslag, ett vidareutvecklat och färdigställt",
       },
       {
         name: "Texter och copy",
-        price: "  kr",
+        price: "4\u00a0500 kr",
         note: "Vi skriver sajtens innehåll åt dig",
       },
       {
         name: "Extra sida",
-        price: "  kr",
+        price: "2\u00a0500 kr",
         note: "Utöver paketets sidantal",
       },
       {
         name: "Drift & förvaltning",
-        price: "  kr/mån",
+        price: "1\u00a0490 kr/mån",
         note: "Uppdateringar, övervakning, säkerhetskopior, småändringar",
       },
       {
@@ -362,7 +362,7 @@ const sv = {
     items: [
       {
         q: "Vad kostar en sajt egentligen?",
-        a: "En landningssida landar på 1  kr och en komplett företagssajt på 2  kr, exklusive moms. Större projekt offereras. Du får ett fast pris efter första samtalet — ingen timdebitering som skenar.",
+        a: "En landningssida landar på 14\u00a0900 kr och en komplett företagssajt på 29\u00a0900 kr, exklusive moms. Större projekt offereras. Du får ett fast pris efter första samtalet — ingen timdebitering som skenar.",
       },
       {
         q: "Hur lång tid tar det?",
@@ -382,7 +382,7 @@ const sv = {
       },
       {
         q: "Vad händer efter lansering?",
-        a: "I Studio ingår 30 dagars support. Därefter kan du teckna drift och förvaltning för   kr per månad, eller höra av dig när något behövs och betala per gång.",
+        a: "I Studio ingår 30 dagars support. Därefter kan du teckna drift och förvaltning för 1\u00a0490 kr per månad, eller höra av dig när något behövs och betala per gång.",
       },
       {
         q: "Använder ni AI?",
@@ -433,10 +433,10 @@ const sv = {
       ],
       budget: "Ungefärlig budget",
       budgetOptions: [
-        "Under 1  kr",
-        "1  – 3  kr",
-        "3  – 6  kr",
-        "Över 6  kr",
+        "Under 15\u00a0000 kr",
+        "15\u00a0000 – 30\u00a0000 kr",
+        "30\u00a0000 – 60\u00a0000 kr",
+        "Över 60\u00a0000 kr",
         "Vet inte än",
       ],
       selectPlaceholder: "Välj ett alternativ",

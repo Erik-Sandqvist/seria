@@ -7,11 +7,8 @@ förrenderas statiskt på både svenska och engelska.
 
 ## Status
 
-Sajten är komplett och körbar, men **inte lanserad**. Tre saker är öppna:
+Sajten är komplett och körbar, men **inte lanserad**. Två saker är öppna:
 
-- **Typografin är inte beslutad.** Sajten kör den ursprungliga uppsättningen
-  (Instrument Serif + Geist). Tre alternativa riktningar ligger i
-  [`design/`](design/) och väntar på ett val — se [Designriktningar](#designriktningar).
 - **`src/site.config.ts` innehåller platshållare** — namn, org.nr, telefon,
   mejl och ort måste fyllas i innan publicering.
 - **Case-sidan är tom med flit.** Inga påhittade referensuppdrag.
@@ -91,7 +88,7 @@ src/
   app/[locale]/         Rot-layout, startsida, [slug] för övriga sidor
   proxy.ts              Skickar / vidare till rätt språk
 
-design/                 Designriktningar under utvärdering (se nedan)
+design/                 Designriktningar — A är införd, B och C som referens
 docs/
   affarsupplagg.md      Bolagsform, F-skatt, moms, avtal, prissättning
   varumarke.md          Logotyp, färg, typografi, ton
@@ -120,17 +117,20 @@ Färger, typsnitt och typografiska skalor är tokens i `@theme`-blocket överst 
 - **ink** — mörk grund, `ink-950` är sidans botten
 - **bone** — varm off-white för text och ljusa sektioner
 - **signal** — orange accent, används sparsamt: knappar, siffror, understrykningar
-- Rubriker i Instrument Serif, brödtext i Geist Sans, etiketter i Geist Mono
+- Rubriker i Familjen Grotesk 700, brödtext i Instrument Sans, etiketter i Geist Mono
+- Tätheten trappas med storleken: -0.045em i display, -0.038em i title,
+  -0.022em i övrigt. Reglerna ligger utanför Tailwinds lager i `globals.css`
+  och vinner därför över storleksverktygen
 
 ### Designriktningar
 
-[`design/`](design/) innehåller tre alternativa riktningar för sajtens
-typografi och rörelse, som artboards på en delad canvas. De är **förslag, inte
-sajtens nuvarande utseende** — inget av dem är infört i `src/`.
+[`design/`](design/) innehåller tre riktningar för sajtens typografi och
+rörelse, som artboards på en delad canvas. **Riktning A är vald och införd i
+`src/`** — B och C ligger kvar som referens och jämförelse.
 
 | Fil | Riktning |
 | --- | --- |
-| `Main.dc.html` | A · Svensk grotesk — Familjen Grotesk + Instrument Sans |
+| `Main.dc.html` | **A · Svensk grotesk** — Familjen Grotesk + Instrument Sans (vald) |
 | `Redaktionell.dc.html` | B · Redaktionell — Newsreader + Archivo, ljus botten |
 | `Teknisk.dc.html` | C · Teknisk precision — Outfit + Geist + JetBrains Mono |
 | `Typsnitt.dc.html` | De tre mot nuvarande uppsättning, samma ord och storlekar |

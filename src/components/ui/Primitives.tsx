@@ -123,7 +123,7 @@ export function SectionHeading({
 type ButtonVariant = "primary" | "secondary" | "ghost" | "onBone";
 
 const buttonBase =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-200 whitespace-nowrap";
+  "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium whitespace-nowrap transition-[transform,background-color,border-color,color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5";
 
 const buttonVariants: Record<ButtonVariant, string> = {
   primary: "bg-signal-500 text-ink-950 hover:bg-signal-400",
@@ -173,7 +173,10 @@ export function ArrowRight({ className }: { className?: string }) {
     <svg
       viewBox="0 0 16 16"
       aria-hidden="true"
-      className={cn("h-3.5 w-3.5", className)}
+      className={cn(
+        "h-3.5 w-3.5 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1",
+        className,
+      )}
       fill="none"
       stroke="currentColor"
       strokeWidth="1.6"

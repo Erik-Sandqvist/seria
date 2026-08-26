@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Familjen_Grotesk, Geist_Mono, Instrument_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/content";
 import { revealScript } from "@/lib/reveal-script";
@@ -7,11 +7,20 @@ import { isLocale, locales } from "@/lib/routes";
 import { site } from "@/site.config";
 import "../globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-const display = Instrument_Serif({
-  variable: "--font-display",
-  weight: "400",
+// Egna variabelnamn (…-src) så att @theme kan lägga på reservtypsnitt.
+// Pekade båda på samma namn skuggade next/font hela reservkedjan.
+const display = Familjen_Grotesk({
+  variable: "--font-display-src",
+  subsets: ["latin"],
+  display: "swap",
+});
+const body = Instrument_Sans({
+  variable: "--font-body-src",
+  subsets: ["latin"],
+  display: "swap",
+});
+const mono = Geist_Mono({
+  variable: "--font-mono-src",
   subsets: ["latin"],
   display: "swap",
 });
@@ -44,7 +53,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={dict.htmlLang}
-      className={`${geistSans.variable} ${geistMono.variable} ${display.variable} h-full`}
+      className={`${display.variable} ${body.variable} ${mono.variable} h-full`}
       suppressHydrationWarning
     >
       <head>

@@ -13,7 +13,7 @@ mycket luft, en enda accentfärg som används sparsamt och därför märks.
 
 ## Logotyp
 
-**Ordmärke:** `seria` med gemener i Instrument Serif, följt av en punkt i
+**Ordmärke:** `seria` med gemener i Familjen Grotesk 700, följt av en punkt i
 signalfärg. Punkten är en del av märket — utelämna den inte.
 
 **Symbol:** fyra staplar i stigande höjd inuti en rundad kvadrat, där den
@@ -51,13 +51,15 @@ text på orange har båda god kontrast — behåll de kombinationerna.
 
 | Roll | Typsnitt | Användning |
 | --- | --- | --- |
-| Rubriker | **Instrument Serif** Regular | H1–H3, priser, siffror |
-| Brödtext | **Geist Sans** | All löpande text och knappar |
+| Rubriker | **Familjen Grotesk** 700 | H1–H3, priser, siffror |
+| Brödtext | **Instrument Sans** | All löpande text och knappar |
 | Etiketter | **Geist Mono** | Ögonbryn, versaler, `0.16–0.22em` teckenmellanrum |
 
-Alla tre finns gratis via Google Fonts. Rubriker sätts tätt
-(`letter-spacing: -0.02em`) och stort; det är kontrasten mellan en stor serif
-och små versalgemena mono-etiketter som ger uttrycket dess karaktär.
+Alla tre finns gratis via Google Fonts. Familjen Grotesk är ritad i Stockholm
+av Letters from Sweden — ett svenskt snitt för en svensk studio, inte bara en
+svensk ton. Rubriker sätts mycket tätt (-0.045em i display) och stort; det är
+kontrasten mellan den täta grotesken och små versalgemena mono-etiketter som
+ger uttrycket dess karaktär.
 
 ## Ton i text
 
