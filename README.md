@@ -7,10 +7,14 @@ förrenderas statiskt på både svenska och engelska.
 
 ## Status
 
-Sajten är komplett och körbar, men **inte lanserad**. Två saker är öppna:
+Sajten är komplett och körbar, men **inte lanserad**. Tre saker är öppna:
 
 - **`src/site.config.ts` innehåller platshållare** — namn, org.nr, telefon,
   mejl och ort måste fyllas i innan publicering.
+- **Integritetspolicyn och villkoren behöver din genomgång.** De är skrivna
+  för den här sajten och det här upplägget, men innehåller `[BYT UT]`-markörer
+  och bör läsas av någon juridiskt kunnig innan ni går live — se
+  [Juridiska sidor](#juridiska-sidor).
 - **Case-sidan är tom med flit.** Inga påhittade referensuppdrag.
 
 ## Kom igång
@@ -52,8 +56,13 @@ Sök efter `BYT UT`.
 - [ ] `team` — ditt namn, din roll, din bio och dina initialer
 - [ ] `RESEND_API_KEY` och `CONTACT_FROM_EMAIL` i `.env.local` (se `.env.example`)
 - [ ] Case-sidan — se nedan
-- [ ] En OG-bild på 1200×630 px i `public/og.png`, och koppla in den i
-      `src/lib/metadata.ts` under `openGraph.images`
+- [ ] `[BYT UT]`-markörerna i `legal`-blocket i `sv.ts` och `en.ts`
+      (organisationsnummer, och leverantörerna om du inte kör Vercel + Resend)
+- [ ] `legalUpdated` i `site.config.ts` när du ändrat i policyn
+
+Delningsbilden behöver du inte göra något åt — den genereras vid bygget från
+[`src/app/[locale]/opengraph-image.tsx`](src/app/[locale]/opengraph-image.tsx)
+med sajtens egen typografi och färg, en per språk.
 
 ### Case-sidan
 
@@ -85,7 +94,11 @@ src/
   components/           Logotyp, header, footer, PageShell, UI-primitiv
   sections/             Hero, tjänster, priser, process, case, FAQ, kontakt …
   views/index.tsx       Vilka sektioner varje sida består av
+  sections/Legal.tsx    Mall för integritetspolicy och villkor
   app/[locale]/         Rot-layout, startsida, [slug] för övriga sidor
+    opengraph-image.tsx Delningsbild, genereras per språk vid bygget
+    error.tsx           Fångar renderingsfel inuti språksegmentet
+  app/global-error.tsx  Sista skyddsnätet — fel i själva rot-layouten
   proxy.ts              Skickar / vidare till rätt språk
 
 design/                 Designriktningar — A är införd, B och C som referens
@@ -144,6 +157,20 @@ källfilerna ovan — redigera aldrig den direkt.
 Rubrikstorlekarna i A, B och C är uppmätta mot sina kolumnbredder, inte
 uppskattade. Byter du typsnitt eller kolumnbredd behöver de mätas om — geometriska
 och groteska snitt skiljer sig kraftigt i bredd vid samma punktstorlek.
+
+### Juridiska sidor
+
+`/sv/integritetspolicy` och `/sv/villkor` (`/en/privacy`, `/en/terms`) ligger
+som vanliga sidor med innehållet i `legal`-blocket i språkfilerna, och länkas
+längst ned i footern.
+
+Integritetspolicyn beskriver sajten som den faktiskt fungerar: kontaktformuläret
+är det enda som samlar personuppgifter, och sajten sätter **inga kakor och kör
+ingen besöksmätning** — därför finns ingen kakruta. Lägger du till analysverktyg
+måste både texten och den saknade samtyckesrutan åtgärdas.
+
+Texterna är ett underlag, inte juridisk rådgivning. Sök efter `[BYT UT]` och
+låt någon kunnig läsa igenom innan lansering.
 
 ### Infällningsanimationen
 

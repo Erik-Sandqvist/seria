@@ -17,6 +17,17 @@ export function buildMetadata(locale: Locale, page: PageKey): Metadata {
   // sitt eget namn. Startsidan sätter hela titeln absolut.
   const fullTitle = page === "home" ? title : `${title} — ${site.name}`;
 
+  // Filkonventionen opengraph-image ärvs inte ner till undersidorna, så vi
+  // pekar ut den uttryckligen. metadataBase gör sökvägen absolut.
+  const images = [
+    {
+      url: `/${locale}/opengraph-image`,
+      width: 1200,
+      height: 630,
+      alt: `${site.name} — ${dict.hero.titleLead} ${dict.hero.titleAccent}`,
+    },
+  ];
+
   return {
     title: page === "home" ? { absolute: title } : title,
     description,
@@ -31,11 +42,13 @@ export function buildMetadata(locale: Locale, page: PageKey): Metadata {
       title: fullTitle,
       description,
       url: path,
+      images,
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images,
     },
   };
 }

@@ -55,14 +55,14 @@
       "x": 0,
       "y": -280,
       "w": 560,
-      "text": "Tre riktningar för seria — modernare, hårdare typografi, mer rörelse.\n\nSamma innehåll och samma budskap i alla tre; det som skiljer är typsnitt, ljushet och hur rörelsen beter sig. Välj en så bygger jag om sajten efter den.\n\nHovra över knapparna — glansen och lyftet är hover, inte loop. Varje artboard har en Rörelse-växel om du vill se den stilla."
+      "text": "Tre riktningar för seria — modernare, hårdare typografi, mer rörelse.\n\nA är vald och byggd. B och C ligger kvar som referens; de visar fortfarande sina egna färger och sitt eget utgångsläge.\n\nHovra över knapparna — glansen och lyftet är hover, inte loop. Varje artboard har en Rörelse-växel om du vill se den stilla."
     },
     {
       "id": "dir-a",
       "x": 700,
       "y": -280,
       "w": 500,
-      "text": "A · SVENSK GROTESK\n\nFamiljen Grotesk, ritad i Stockholm av Letters from Sweden. Tät helgrotesk, ingen serif kvar. Rörelsen är stram: rader ur en mask, ett accentsvep, ett långsamt band.\n\nStyrka: mest samtida av de tre och den enda med en svensk historia att berätta.\nAvvägning: minst särskiljande i tystnad — grotesk på mörkt är vanligt i branschen."
+      "text": "A · SVENSK GROTESK — VALD OCH BYGGD\n\nFamiljen Grotesk, ritad i Stockholm av Letters from Sweden. Tät helgrotesk, ingen serif kvar. Rörelsen är stram: rader ur en mask, ett accentsvep, ett långsamt band.\n\nDen här riktningen är införd i sajten. Accenten är sedan bytt från orange till tallgrönt (#2fa98f) och grunden ljusad från #0a0d0e till #12171a — artboarden visar det byggda läget."
     },
     {
       "id": "dir-b",
