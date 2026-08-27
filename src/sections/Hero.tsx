@@ -23,16 +23,17 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             fill
             priority
             sizes="100vw"
-            className="scale-150 object-cover blur-xl"
+            className="scale-150 object-cover blur-sm"
           />
           {/* Hinnan bär läsbarheten. Rubriken ligger i bone-50 och ingressen
-              i ink-300 — utan den här ytan faller kontrasten med motivet. */}
-          <div className="absolute inset-0 bg-ink-950/85" />
-          {/* Drar fonden mot tallgrönt i stället för bildens blå, så accenten
-              bär stämningen och inte bara prickar detaljer. Ligger över den
-              mörka hinnan: pine-900 är ljusare än ink-950 i grön kanal, så
-              hinnan under måste vara tätare för att kontrasten ska hålla. */}
-          <div className="absolute inset-0 bg-pine-900/40" />
+              i ink-300, och ingressen är den känsliga: vid 70 % mäter den
+              5,4:1 mot motivets ljusaste punkt. Sänk inte utan att mäta om —
+              4,5:1 är golvet för brödtext. */}
+          <div className="absolute inset-0 bg-ink-950/70" />
+          {/* Binder ihop fonden med paletten. Låg täthet med flit: bilden är
+              redan tonad åt grönt, så tvätten behöver bara samla nyanserna,
+              inte färga om dem. */}
+          <div className="absolute inset-0 bg-pine-900/20" />
           {/* Djupnar nedåt så sektionen möter nästa utan att fonden lyser
               igenom i kanten. */}
           <div className="absolute inset-0 bg-gradient-to-b from-pine-900/40 via-transparent to-ink-950" />

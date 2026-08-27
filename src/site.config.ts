@@ -22,7 +22,7 @@ export const site = {
    * Bildbandet i hero. Sökväg relativt /public.
    * Tom sträng = hero utan bild, bara typografi.
    */
-  heroImage: "/hero.jpeg",
+  heroImage: "/hero2.jpeg",
   founded: 2026,
   socials: {
     linkedin: "", // t.ex. "https://linkedin.com/company/seria"

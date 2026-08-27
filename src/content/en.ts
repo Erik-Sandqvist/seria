@@ -184,19 +184,22 @@ const en: Dictionary = {
   manifesto: {
     eyebrow: "What we stand for",
     title: "What decides whether a site works rarely shows up in the mockup.",
-    lead: "A site has to bring in customers, load fast on a bad connection and be editable without breaking. That is harder than it sounds, and it is where our time goes.",
+    // Asterisks tint the word with the accent colour, see lib/highlight.tsx.
+    // The Swedish copy marks different words on purpose — the key phrase in a
+    // sentence rarely lands in the same place after translation.
+    lead: "A site has to *bring in customers*, *load fast* on a bad connection and *be editable* without breaking. That is harder than it sounds, and it is where our time goes.",
     pillars: [
       {
         title: "We write the code ourselves",
-        body: "Every line is written from scratch in Next.js, TypeScript and React. No heavy theme dragging the site down and locking you in with one supplier.",
+        body: "Every line is written *from scratch* in Next.js, TypeScript and React. No heavy theme dragging the site down and locking you in with one supplier.",
       },
       {
         title: "Load time is a requirement, not a hope",
-        body: "Every site we ship should load in under a second on mobile. Google notices, and so does everyone who decides whether to stay.",
+        body: "Every site we ship should load in *under a second* on mobile. Google notices, and so does everyone who decides whether to stay.",
       },
       {
         title: "You talk to the person building it",
-        body: "No account manager in between, no ticket numbers. Ask a question about the site and the person who wrote the code answers.",
+        body: "No account manager in between, no ticket numbers. Ask a question about the site and *the person who wrote the code* answers.",
       },
     ],
   },
@@ -205,6 +208,8 @@ const en: Dictionary = {
     eyebrow: "Services",
     title: "Websites, web apps and everything around them.",
     allLabel: "All services",
+    indexLabel: "Jump to a service",
+    talkLabel: "Talk about this",
     lead: "We handle the whole chain: strategy, design, code and hosting. You do not have to coordinate three different suppliers.",
     items: [
       {
@@ -549,6 +554,12 @@ const en: Dictionary = {
         a: `No. We work with clients across Sweden and handle everything remotely. If you are near ${site.city}, we are happy to meet over a coffee.`,
       },
     ],
+  },
+
+  banner: {
+    label: "Message from seria",
+    title: "Hello.",
+    body: "Glad you found your way here. If you are wondering what a site would cost for your business, one call is enough.",
   },
 
   ctaBand: {

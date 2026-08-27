@@ -1,6 +1,7 @@
 import { Container, Eyebrow, Section } from "@/components/ui/Primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/content";
+import { highlight } from "@/lib/highlight";
 
 export function Manifesto({ dict }: { dict: Dictionary }) {
   return (
@@ -20,7 +21,7 @@ export function Manifesto({ dict }: { dict: Dictionary }) {
           <div>
             <Reveal delay={60}>
               <p className="max-w-2xl text-xl leading-relaxed text-bone-100">
-                {dict.manifesto.lead}
+                {highlight(dict.manifesto.lead)}
               </p>
             </Reveal>
 
@@ -39,7 +40,7 @@ export function Manifesto({ dict }: { dict: Dictionary }) {
                         {pillar.title}
                       </h3>
                       <p className="mt-2 max-w-xl leading-relaxed text-ink-300">
-                        {pillar.body}
+                        {highlight(pillar.body)}
                       </p>
                     </div>
                   </div>

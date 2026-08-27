@@ -11,6 +11,7 @@ import { Manifesto } from "@/sections/Manifesto";
 import { Pricing } from "@/sections/Pricing";
 import { ProcessSteps } from "@/sections/ProcessSteps";
 import { Services } from "@/sections/Services";
+import { ServicesDetail } from "@/sections/ServicesDetail";
 import { Work } from "@/sections/Work";
 
 export type ViewProps = { locale: Locale; dict: Dictionary };
@@ -33,7 +34,7 @@ function HomeView({ locale, dict }: ViewProps) {
 function ServicesView({ locale, dict }: ViewProps) {
   return (
     <>
-      <Services locale={locale} dict={dict} headingAs="h1" />
+      <ServicesDetail locale={locale} dict={dict} />
       <ProcessSteps dict={dict} tone="bone" />
       <CtaBand locale={locale} dict={dict} />
     </>

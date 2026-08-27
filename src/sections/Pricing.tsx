@@ -72,7 +72,7 @@ export function Pricing({
                 <p className="mt-6 text-sm text-ink-400">
                   {dict.pricing.includesLabel}
                 </p>
-                <ul className="mt-4 flex flex-col gap-3">
+                <ul className="mt-4 mb-8 flex flex-col gap-3">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-3 text-sm text-bone-100">
                       <Check className="mt-0.5 text-signal-600" />
@@ -81,9 +81,13 @@ export function Pricing({
                   ))}
                 </ul>
 
+                {/* mt-auto, inte mt-8: funktionslistorna är olika långa, och
+                    med fast marginal hamnar knapparna på tre olika höjder.
+                    Auto äter upp överskottet så alla tre ligger på samma
+                    linje längst ned. Minimiluften kommer från listans mb-8. */}
                 <ButtonLink
                   href={href(locale, "contact")}
-                  className="mt-8 w-full"
+                  className="mt-auto w-full"
                 >
                   {tier.id === "skala"
                     ? dict.pricing.customCtaLabel

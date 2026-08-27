@@ -184,19 +184,21 @@ const sv = {
   manifesto: {
     eyebrow: "Vad vi står för",
     title: "Det som avgör om en sajt fungerar syns sällan i skissen.",
-    lead: "En sajt ska dra in kunder, ladda snabbt även på dålig uppkoppling och gå att uppdatera utan att något går sönder. Det är svårare än det låter, och det är där vi lägger tiden.",
+    // Stjärnorna ger ordet accentfärg, se lib/highlight.tsx. Flytta dem för
+    // att betona något annat; utan stjärnor renderas texten oförändrad.
+    lead: "En sajt ska *dra in kunder*, *ladda snabbt* även på dålig uppkoppling och *gå att uppdatera* utan att något går sönder. Det är svårare än det låter, och det är där vi lägger tiden.",
     pillars: [
       {
         title: "Vi skriver koden själva",
-        body: "All kod skrivs från grunden i Next.js, TypeScript och React. Ingen tung tema-mall som drar ner sajten och låser in dig hos en leverantör.",
+        body: "All kod skrivs *från grunden* i Next.js, TypeScript och React. Ingen tung tema-mall som drar ner sajten och låser in dig hos en leverantör.",
       },
       {
         title: "Laddtid är ett krav, inte en förhoppning",
-        body: "Varje sajt vi lämnar ifrån oss ska ladda på under en sekund i mobilen. Det syns i Google, och det syns i hur många som stannar kvar.",
+        body: "Varje sajt vi lämnar ifrån oss ska ladda på *under en sekund* i mobilen. Det syns i Google, och det syns i hur många som stannar kvar.",
       },
       {
         title: "Du pratar med den som bygger",
-        body: "Ingen projektledare i mellanhand, inga ärendenummer. Har du en fråga om sajten svarar den som skrev koden.",
+        body: "Ingen projektledare i mellanhand, inga ärendenummer. Har du en fråga om sajten svarar *den som skrev koden*.",
       },
     ],
   },
@@ -205,6 +207,8 @@ const sv = {
     eyebrow: "Tjänster",
     title: "Webbplatser, webbappar och allt som hör till.",
     allLabel: "Alla tjänster",
+    indexLabel: "Hoppa till en tjänst",
+    talkLabel: "Prata om det här",
     lead: "Vi tar hela kedjan: strategi, design, kod och drift. Du behöver inte samordna tre olika leverantörer.",
     items: [
       {
@@ -328,7 +332,7 @@ const sv = {
       {
         id: "start",
         name: "Start",
-        price: "ca 10\u00a0900 kr",
+        price: "ca 10\u00a0000 kr",
         priceNote: "ex moms",
         popular: false,
         tagline: "En stark sida som gör en sak riktigt bra.",
@@ -347,7 +351,7 @@ const sv = {
       {
         id: "studio",
         name: "Studio",
-        price: "ca 25\u00a0900 kr",
+        price: "ca 25\u00a0000 kr",
         priceNote: "ex moms",
         popular: true,
         tagline: "En komplett företagssajt du kan växa i.",
@@ -572,6 +576,12 @@ const sv = {
         a: `Nej, vi jobbar med kunder i hela Sverige och sköter allt digitalt. Är du i ${site.city}-trakten ses vi gärna över en kaffe.`,
       },
     ],
+  },
+
+  banner: {
+    label: "Meddelande från seria",
+    title: "Hej.",
+    body: "Kul att du hittade hit. Undrar du vad en sajt skulle kosta för just din verksamhet räcker det med ett samtal.",
   },
 
   ctaBand: {

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HelloBanner } from "@/components/HelloBanner";
 import { getDictionary } from "@/content";
 import { organizationJsonLd } from "@/lib/metadata";
 import type { Locale, PageKey } from "@/lib/routes";
@@ -41,6 +42,9 @@ export function PageShell({
       </main>
 
       <Footer locale={locale} dict={dict} />
+
+      {/* Bara strängarna skickas över till klienten, inte hela ordboken. */}
+      <HelloBanner banner={dict.banner} closeLabel={dict.nav.close} />
 
       {page === "home" ? (
         <script

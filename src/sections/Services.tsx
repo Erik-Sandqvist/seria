@@ -15,13 +15,11 @@ export function Services({
   /** På startsidan visar vi ett urval och länkar vidare till tjänstesidan. */
   limit,
   showCta = false,
-  headingAs,
 }: {
   locale: Locale;
   dict: Dictionary;
   limit?: number;
   showCta?: boolean;
-  headingAs?: "h1" | "h2";
 }) {
   const items = limit ? dict.services.items.slice(0, limit) : dict.services.items;
 
@@ -34,7 +32,6 @@ export function Services({
             title={dict.services.title}
             lead={dict.services.lead}
             layout="split"
-            as={headingAs}
           />
         </Reveal>
 
