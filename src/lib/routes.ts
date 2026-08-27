@@ -36,6 +36,14 @@ export function pageFromSlug(locale: Locale, segments: string[] | undefined): Pa
   return pageKeys.find((key) => pageSlugs[key][locale] === slug) ?? null;
 }
 
+/**
+ * Sökväg till en enskild casesida: /sv/case/<slug> ↔ /en/work/<slug>.
+ * Sluggen är språkneutral, så samma post finns på samma slug i båda språken.
+ */
+export function caseHref(locale: Locale, slug: string): string {
+  return `${href(locale, "work")}/${slug}`;
+}
+
 /** Motsvarande sökväg i det andra språket – används av språkväxlaren. */
 export function alternatePath(page: PageKey, target: Locale): string {
   return href(target, page);

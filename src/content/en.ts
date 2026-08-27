@@ -176,8 +176,6 @@ const en: Dictionary = {
     lead: "seria is a small studio building websites and digital tools for companies that want to grow. You get a fixed price before we start, and a site that is live within a few weeks.",
     primaryCta: "Book a call",
     secondaryCta: "See pricing",
-    note: "We take on a handful of projects at a time. That means you talk to the person actually writing the code, and that we sometimes turn work down rather than do it badly.",
-    noteRole: "founder",
     // Keep this line current. A stale availability note is worse than none.
     availability: "We have room for new projects right now",
     location: `${site.city} · working across Sweden`,
@@ -431,9 +429,56 @@ const en: Dictionary = {
       body: "The first three projects get 30 % off in exchange for letting us show the result here. You get a site built by someone with everything to prove.",
       cta: "Talk to us",
     },
-    items: [],
+    // Samma slug som i sv.ts — den binder ihop språken.
+    items: [
+      {
+        slug: "exempelkund",
+        client: "Exempelkund AB",
+        sector: "Sector",
+        year: "2026",
+        title: "A headline that says what the project gave the client.",
+        body: "Two sentences in the list: what the client needed and what they got. Save the detail for the case page — this is the hook, not the whole story.",
+        results: ["Metric 01", "Metric 02", "Metric 03"],
+        url: "",
+        detail: {
+          lead: "An intro on the case page that frames the engagement: who the client is, what was at stake and what the work resulted in.",
+          role: "Design, development, hosting",
+          duration: "6 weeks",
+          stack: ["Next.js", "TypeScript", "Tailwind", "Vercel"],
+          sections: [
+            {
+              h: "The brief",
+              body: [
+                "Describe the starting point. What did the client have, what was not working, and what made them get in touch? Be concrete — an old site that loaded slowly is a better opening than “they wanted to modernise”.",
+                "Include the constraints too: timeline, budget, existing systems that had to keep working.",
+              ],
+            },
+            {
+              h: "The work",
+              body: [
+                "What you actually did, in the order it happened. Structure and content first, then design, then build. Name the hard calls and why they landed where they did.",
+                "This is where a case becomes professional rather than boastful: the reader should understand how you think, not just what you shipped.",
+              ],
+            },
+            {
+              h: "The outcome",
+              body: [
+                "What happened after launch? Measure it where you can — load time, conversions, enquiries, hours saved internally. The figures at the top of the page should be backed up here.",
+                "If the client said something good, let it stand in their own words.",
+              ],
+            },
+          ],
+        },
+      },
+    ],
     resultsLabel: "Results",
     visitLabel: "Visit the site",
+    caseLabel: "Read the full case",
+    backLabel: "All work",
+    roleLabel: "Role",
+    durationLabel: "Timeline",
+    stackLabel: "Stack",
+    nextLabel: "Next case",
   },
 
   about: {

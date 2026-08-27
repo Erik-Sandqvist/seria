@@ -55,7 +55,7 @@ Sök efter `BYT UT`.
 - [ ] `socials` — tomma länkar döljs automatiskt i footern
 - [ ] `team` — ditt namn, din roll, din bio och dina initialer
 - [ ] `RESEND_API_KEY` och `CONTACT_FROM_EMAIL` i `.env.local` (se `.env.example`)
-- [ ] Case-sidan — se nedan
+- [ ] Case-sidan — byt ut eller ta bort mallposten `Exempelkund AB`, se nedan
 - [ ] `[BYT UT]`-markörerna i `legal`-blocket i `sv.ts` och `en.ts`
       (organisationsnummer, och leverantörerna om du inte kör Vercel + Resend)
 - [ ] `legalUpdated` i `site.config.ts` när du ändrat i policyn
@@ -66,13 +66,30 @@ med sajtens egen typografi och färg, en per språk.
 
 ### Case-sidan
 
-`work.items` i språkfilerna är tom, och då visar sidan ett ärligt "vi har
-precis börjat"-läge med ett erbjudande om rabatt till de tre första kunderna.
-Det är medvetet: hellre det än påhittade referensuppdrag.
+Är `work.items` i språkfilerna tom visar sidan ett ärligt "vi har precis
+börjat"-läge med ett erbjudande om rabatt till de tre första kunderna. Det är
+medvetet: hellre det än påhittade referensuppdrag. Så fort listan innehåller
+något byter sidan automatiskt till case-läget.
 
-Så fort du lägger till ett riktigt projekt i listan byter sidan automatiskt
-till case-läget. Mallen ligger som kommentar i
-[`src/content/sv.ts`](src/content/sv.ts) — lägg in samma projekt i `en.ts`.
+**Listan innehåller just nu en mall**, `Exempelkund AB`. Den är ingen riktig
+referens — byt ut den mot ett skarpt uppdrag eller ta bort den före lansering.
+
+Varje case får en egen sida på `/sv/case/<slug>` och `/en/work/<slug>` med
+uppdraget, arbetet, utfallet, nyckeltal och en metarad för roll, tid och
+teknik. Sluggen är språkneutral och binder ihop språken — samma slug i `sv.ts`
+och `en.ts` ger korrekt hreflang mellan de två versionerna av samma case.
+
+### Lägga till ett case
+
+1. Lägg till en post i `work.items` i [`src/content/sv.ts`](src/content/sv.ts).
+   Kopiera mallen och behåll alla fält.
+2. Lägg in samma post med samma `slug` i `en.ts`. Glömmer du den säger
+   `npm run build` ifrån, eftersom `en.ts` är typad mot svenskans form.
+3. Klart. Routing, sitemap, hreflang, JSON-LD och "nästa case"-länken följer
+   automatiskt med.
+
+Tom `url` döljer "Besök sajten"-knappen. Med bara ett case i listan döljs
+"nästa case", som annars skulle peka på sig självt.
 
 ## Så hänger det ihop
 
@@ -95,7 +112,9 @@ src/
   sections/             Hero, tjänster, priser, process, case, FAQ, kontakt …
   views/index.tsx       Vilka sektioner varje sida består av
   sections/Legal.tsx    Mall för integritetspolicy och villkor
+  sections/CaseStudy.tsx  Enskild casesida — uppdraget, arbetet, utfallet
   app/[locale]/         Rot-layout, startsida, [slug] för övriga sidor
+    [slug]/[caseSlug]/  Enskilt case: /sv/case/<slug>, /en/work/<slug>
     opengraph-image.tsx Delningsbild, genereras per språk vid bygget
     error.tsx           Fångar renderingsfel inuti språksegmentet
   app/global-error.tsx  Sista skyddsnätet — fel i själva rot-layouten

@@ -19,10 +19,10 @@ function HomeView({ locale, dict }: ViewProps) {
   return (
     <>
       <Hero locale={locale} dict={dict} />
-      <Manifesto dict={dict} />
-      <Services locale={locale} dict={dict} limit={3} showCta />
       <ProcessSteps dict={dict} tone="bone" />
       <Pricing locale={locale} dict={dict} showAddons={false} />
+      <Manifesto dict={dict} />
+      <Services locale={locale} dict={dict} limit={3} showCta />
       <Work locale={locale} dict={dict} />
       <Faq dict={dict} />
       <CtaBand locale={locale} dict={dict} />

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   ArrowRight,
   ButtonLink,
@@ -7,7 +8,7 @@ import {
 } from "@/components/ui/Primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/content";
-import { href, type Locale } from "@/lib/routes";
+import { caseHref, href, type Locale } from "@/lib/routes";
 
 export function Work({
   locale,
@@ -55,7 +56,7 @@ export function Work({
         ) : (
           <ul className="mt-14 border-t border-bone-300">
             {items.map((item, i) => (
-              <Reveal as="li" key={item.client} delay={i * 70}>
+              <Reveal as="li" key={item.slug} delay={i * 70}>
                 <article className="grid gap-x-12 gap-y-8 border-b border-bone-300 py-10 lg:grid-cols-[1fr_16rem]">
                   <div>
                     <div className="flex flex-wrap items-center gap-2.5 text-sm text-bone-500">
@@ -66,22 +67,36 @@ export function Work({
                       <span>{item.year}</span>
                     </div>
                     <h3 className="mt-4 font-display text-3xl text-balance text-ink-900">
-                      {item.title}
+                      <Link
+                        href={caseHref(locale, item.slug)}
+                        className="underline decoration-transparent decoration-1 underline-offset-[6px] transition-colors hover:decoration-signal-500"
+                      >
+                        {item.title}
+                      </Link>
                     </h3>
                     <p className="mt-4 max-w-2xl leading-relaxed text-ink-700">
                       {item.body}
                     </p>
-                    {item.url ? (
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group mt-6 inline-flex items-center gap-2 text-sm text-ink-900 underline decoration-signal-500 decoration-1 underline-offset-[6px]"
+                    <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-3">
+                      <Link
+                        href={caseHref(locale, item.slug)}
+                        className="group inline-flex items-center gap-2 text-sm text-ink-900 underline decoration-signal-500 decoration-1 underline-offset-[6px]"
                       >
-                        {dict.work.visitLabel}
+                        {dict.work.caseLabel}
                         <ArrowRight />
-                      </a>
-                    ) : null}
+                      </Link>
+                      {item.url ? (
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group inline-flex items-center gap-2 text-sm text-ink-700 transition-colors hover:text-ink-900"
+                        >
+                          {dict.work.visitLabel}
+                          <ArrowRight />
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
 
                   <div className="border-t border-bone-300 pt-6 lg:border-t-0 lg:border-l lg:pt-1 lg:pl-8">

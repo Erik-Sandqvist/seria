@@ -175,8 +175,6 @@ const sv = {
     lead: "seria är en liten studio som bygger webbplatser och digitala verktyg åt företag som vill växa. Du får ett fast pris innan vi börjar, och en sajt som är i drift på några veckor.",
     primaryCta: "Boka ett samtal",
     secondaryCta: "Se priser",
-    note: "Vi tar ett fåtal projekt i taget. Det betyder att du pratar med den som faktiskt skriver koden, och att vi ibland säger nej till uppdrag vi inte hinner göra ordentligt.",
-    noteRole: "grundare",
     // Håll den här raden aktuell. En gammal tillgänglighetsnotis är värre
     // än ingen alls.
     availability: "Vi har plats för nya projekt just nu",
@@ -330,7 +328,7 @@ const sv = {
       {
         id: "start",
         name: "Start",
-        price: "14\u00a0900 kr",
+        price: "ca 10\u00a0900 kr",
         priceNote: "ex moms",
         popular: false,
         tagline: "En stark sida som gör en sak riktigt bra.",
@@ -349,7 +347,7 @@ const sv = {
       {
         id: "studio",
         name: "Studio",
-        price: "29\u00a0900 kr",
+        price: "ca 25\u00a0900 kr",
         priceNote: "ex moms",
         popular: true,
         tagline: "En komplett företagssajt du kan växa i.",
@@ -369,8 +367,8 @@ const sv = {
       {
         id: "skala",
         name: "Skala",
-        price: "Från 59\u00a0000 kr",
-        priceNote: "offert per projekt",
+        price: "Be om Offert",
+        // priceNote: "offert per projekt",
         popular: false,
         tagline: "När det inte är en sajt utan ett system.",
         for: "För webbappar, e-handel, flerspråkiga sajter och integrationer mot system du redan använder.",
@@ -432,18 +430,78 @@ const sv = {
       cta: "Prata med oss",
     },
     // Fyll på med riktiga projekt här. Så snart listan innehåller något visas
-    // den i stället för tomt-läget ovan. Håll samma fält i en.ts.
-    items: [] as {
+    // den i stället för tomt-läget ovan. Håll samma fält och samma slug i en.ts
+    // — sluggen är nyckeln som binder ihop språken och bygger /sv/case/<slug>.
+    //
+    // Posten nedan är en MALL, inget riktigt uppdrag. Byt ut den mot ett skarpt
+    // case eller ta bort den helt före lansering; en tom lista ger tomt-läget.
+    items: [
+      {
+        slug: "exempelkund", // BYT UT
+        client: "Exempelkund AB", // BYT UT
+        sector: "Bransch",
+        year: "2026",
+        title: "Rubrik som säger vad projektet gav kunden.",
+        body: "Två meningar i listan: vad kunden behövde och vad de fick. Spara detaljerna till casesidan — det här är kroken, inte hela historien.",
+        results: ["Nyckeltal 01", "Nyckeltal 02", "Nyckeltal 03"],
+        url: "",
+        detail: {
+          lead: "En ingress på casesidan som ringar in uppdraget: vem kunden är, vad som stod på spel och vad arbetet resulterade i.",
+          role: "Design, utveckling, drift",
+          duration: "6 veckor",
+          stack: ["Next.js", "TypeScript", "Tailwind", "Vercel"],
+          sections: [
+            {
+              h: "Uppdraget",
+              body: [
+                "Beskriv utgångsläget. Vad hade kunden, vad fungerade inte, och vad var det som gjorde att de hörde av sig? Var konkret — en gammal sajt som laddade långsamt är en bättre öppning än ”de ville modernisera”.",
+                "Ta med begränsningarna också: tidsram, budget, befintliga system som skulle fortsätta fungera.",
+              ],
+            },
+            {
+              h: "Arbetet",
+              body: [
+                "Vad ni faktiskt gjorde, i den ordning det hände. Struktur och innehåll först, sedan design, sedan bygge. Nämn de val som var svåra och varför de blev som de blev.",
+                "Det är här ett case blir professionellt i stället för skrytsamt: läsaren ska förstå hur ni tänker, inte bara vad ni levererade.",
+              ],
+            },
+            {
+              h: "Utfallet",
+              body: [
+                "Vad hände efter lansering? Mät om det går — laddtid, konverteringar, förfrågningar, sparad tid internt. Siffrorna överst på sidan ska ha täckning här.",
+                "Har kunden sagt något bra får det gärna stå med, i deras egna ord.",
+              ],
+            },
+          ],
+        },
+      },
+    ] as {
+      /** URL-segmentet: /sv/case/<slug>. Måste vara identisk i en.ts. */
+      slug: string;
       client: string;
       sector: string;
       year: string;
       title: string;
       body: string;
       results: string[];
+      /** Länk till den publika sajten. Tom sträng döljer knappen. */
       url?: string;
+      detail: {
+        lead: string;
+        role: string;
+        duration: string;
+        stack: string[];
+        sections: { h: string; body: string[] }[];
+      };
     }[],
     resultsLabel: "Resultat",
     visitLabel: "Besök sajten",
+    caseLabel: "Läs hela caset",
+    backLabel: "Alla case",
+    roleLabel: "Roll",
+    durationLabel: "Tid",
+    stackLabel: "Teknik",
+    nextLabel: "Nästa case",
   },
 
   about: {
