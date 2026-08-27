@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/Primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/content";
-import { cn } from "@/lib/cn";
 import { href, type Locale } from "@/lib/routes";
 
 export function Pricing({
@@ -37,16 +36,10 @@ export function Pricing({
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {dict.pricing.tiers.map((tier, i) => (
             <Reveal key={tier.id} delay={i * 80} className="h-full">
-              {/* Det vanligaste valet markeras med en linje i accentfärg
-                  längst upp, inte med ram, bricka och glöd. */}
-              <article
-                className={cn(
-                  "flex h-full flex-col rounded-sm border border-ink-800 p-8",
-                  tier.popular
-                    ? "border-t-2 border-t-signal-500 bg-ink-900"
-                    : "bg-ink-950",
-                )}
-              >
+              {/* Alla tre korten har samma form: accentlinjen längst upp och
+                  den ljusare grunden. Det vanligaste valet skiljs ut av sin
+                  etikett, inte av ram, bricka och glöd. */}
+              <article className="flex h-full flex-col rounded-sm border border-ink-800 border-t-2 border-t-signal-500 bg-ink-900 p-8">
                 <div className="flex items-baseline justify-between gap-3">
                   <h3 className="text-lg font-medium text-bone-50">
                     {tier.name}
@@ -90,7 +83,6 @@ export function Pricing({
 
                 <ButtonLink
                   href={href(locale, "contact")}
-                  variant={tier.popular ? "primary" : "secondary"}
                   className="mt-8 w-full"
                 >
                   {tier.id === "skala"
