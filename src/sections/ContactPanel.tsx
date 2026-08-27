@@ -26,7 +26,7 @@ export function ContactPanel({
           </Reveal>
 
           <Reveal delay={100} className="mt-12">
-            <h2 className="font-mono text-xs uppercase tracking-[0.22em] text-ink-400">
+            <h2 className="text-sm text-ink-400">
               {dict.contact.directTitle}
             </h2>
             <dl className="mt-6 flex flex-col">

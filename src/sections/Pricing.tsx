@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   ButtonLink,
   Check,
   Container,
@@ -30,61 +29,60 @@ export function Pricing({
             eyebrow={dict.pricing.eyebrow}
             title={dict.pricing.title}
             lead={dict.pricing.lead}
+            layout="split"
             as={headingAs}
           />
         </Reveal>
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {dict.pricing.tiers.map((tier, i) => (
-            <Reveal key={tier.id} delay={i * 90} className="h-full">
+            <Reveal key={tier.id} delay={i * 80} className="h-full">
+              {/* Det vanligaste valet markeras med en linje i accentfärg
+                  längst upp, inte med ram, bricka och glöd. */}
               <article
                 className={cn(
-                  "flex h-full flex-col rounded-2xl border p-8",
+                  "flex h-full flex-col rounded-sm border border-ink-800 p-8",
                   tier.popular
-                    ? "border-signal-500 bg-ink-900"
-                    : "border-ink-800 bg-ink-950",
+                    ? "border-t-2 border-t-signal-500 bg-ink-900"
+                    : "bg-ink-950",
                 )}
               >
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-display text-3xl text-bone-50">
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className="text-lg font-medium text-bone-50">
                     {tier.name}
                   </h3>
                   {tier.popular ? (
-                    <span className="rounded-full bg-signal-500 px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-ink-950">
+                    <span className="text-sm text-signal-400">
                       {dict.pricing.popularLabel}
                     </span>
                   ) : null}
                 </div>
 
-                <p className="mt-3 text-sm text-ink-300">{tier.tagline}</p>
+                <p className="mt-2 text-sm text-ink-300">{tier.tagline}</p>
 
-                <div className="mt-8 flex items-baseline gap-2">
-                  <span className="font-display text-4xl text-bone-50">
+                <div className="mt-8 flex items-baseline gap-2.5">
+                  <span className="font-display text-5xl text-bone-50">
                     {tier.price}
                   </span>
-                  <span className="font-mono text-xs uppercase tracking-[0.14em] text-ink-400">
-                    {tier.priceNote}
-                  </span>
+                  <span className="text-sm text-ink-400">{tier.priceNote}</span>
                 </div>
 
                 <p className="mt-6 text-sm leading-relaxed text-ink-400">
                   {tier.for}
                 </p>
 
-                <dl className="mt-6 flex items-center gap-2 border-y border-ink-800 py-4">
-                  <dt className="font-mono text-xs uppercase tracking-[0.16em] text-ink-400">
-                    {dict.pricing.timelineLabel}
-                  </dt>
-                  <dd className="text-sm text-bone-100">{tier.timeline}</dd>
+                <dl className="mt-6 flex items-baseline gap-2 border-y border-ink-800 py-4 text-sm">
+                  <dt className="text-ink-400">{dict.pricing.timelineLabel}</dt>
+                  <dd className="text-bone-100">{tier.timeline}</dd>
                 </dl>
 
-                <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-ink-400">
+                <p className="mt-6 text-sm text-ink-400">
                   {dict.pricing.includesLabel}
                 </p>
                 <ul className="mt-4 flex flex-col gap-3">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-3 text-sm text-bone-100">
-                      <Check className="mt-0.5 text-signal-500" />
+                      <Check className="mt-0.5 text-ink-600" />
                       <span className="leading-relaxed">{feature}</span>
                     </li>
                   ))}
@@ -98,7 +96,6 @@ export function Pricing({
                   {tier.id === "skala"
                     ? dict.pricing.customCtaLabel
                     : dict.pricing.ctaLabel}
-                  <ArrowRight />
                 </ButtonLink>
               </article>
             </Reveal>
@@ -107,22 +104,20 @@ export function Pricing({
 
         {showAddons ? (
           <Reveal className="mt-20">
-            <h3 className="font-mono text-xs uppercase tracking-[0.22em] text-ink-400">
-              {dict.pricing.addonsTitle}
-            </h3>
-            <ul className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-ink-800 bg-ink-800 sm:grid-cols-2 lg:grid-cols-3">
+            <h3 className="text-sm text-ink-400">{dict.pricing.addonsTitle}</h3>
+            <ul className="mt-5 border-t border-ink-800">
               {dict.pricing.addons.map((addon) => (
                 <li
                   key={addon.name}
-                  className="flex flex-col gap-1 bg-ink-950 p-6"
+                  className="grid grid-cols-[1fr_auto] items-baseline gap-x-8 gap-y-1 border-b border-ink-800 py-4 sm:grid-cols-[13rem_1fr_auto]"
                 >
-                  <div className="flex items-baseline justify-between gap-4">
-                    <span className="text-bone-50">{addon.name}</span>
-                    <span className="font-mono text-sm whitespace-nowrap text-signal-500">
-                      {addon.price}
-                    </span>
-                  </div>
-                  <span className="text-sm text-ink-400">{addon.note}</span>
+                  <span className="text-bone-50">{addon.name}</span>
+                  <span className="order-last col-span-2 text-sm text-ink-400 sm:order-none sm:col-span-1">
+                    {addon.note}
+                  </span>
+                  <span className="whitespace-nowrap text-bone-100">
+                    {addon.price}
+                  </span>
                 </li>
               ))}
             </ul>

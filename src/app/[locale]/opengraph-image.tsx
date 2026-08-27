@@ -12,18 +12,21 @@ export function generateStaticParams() {
 }
 
 /**
- * Hämtar rubriktypsnittet vid bygget. ImageResponse kan inte använda
- * next/font, så filen måste in som binärdata. Misslyckas hämtningen faller
- * bilden tillbaka på systemets sans — hellre det än ett brutet bygge.
+ * Hämtar en skärning av rubriktypsnittet vid bygget. ImageResponse kan inte
+ * använda next/font, så filen måste in som binärdata.
  */
-async function displayFont(): Promise<ArrayBuffer | null> {
+async function fetchFace(italic: boolean): Promise<ArrayBuffer | null> {
   try {
     const css = await fetch(
-      "https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@700",
+      `https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@${
+        italic ? 1 : 0
+      }`,
       { headers: { "User-Agent": "Mozilla/5.0" } },
     ).then((r) => (r.ok ? r.text() : ""));
 
-    const url = css.match(/src:\s*url\((https:[^)]+)\)/)?.[1];
+    // Google svarar med ett @font-face per teckenomfång. Latin ligger sist.
+    const urls = [...css.matchAll(/src:\s*url\((https:[^)]+)\)/g)];
+    const url = urls.at(-1)?.[1];
     if (!url) return null;
 
     const res = await fetch(url);
@@ -31,6 +34,12 @@ async function displayFont(): Promise<ArrayBuffer | null> {
   } catch {
     return null;
   }
+}
+
+/** Båda skärningarna eller ingen — annars blandas serif och systemsans. */
+async function displayFaces() {
+  const [normal, italic] = await Promise.all([fetchFace(false), fetchFace(true)]);
+  return normal && italic ? { normal, italic } : null;
 }
 
 export default async function OpengraphImage({
@@ -41,12 +50,13 @@ export default async function OpengraphImage({
   const { locale: raw } = await params;
   const locale = isLocale(raw) ? raw : "sv";
   const dict = getDictionary(locale);
-  const font = await displayFont();
+  const faces = await displayFaces();
 
   const ink = "#12171a";
   const bone = "#f3efe7";
   const muted = "#93a0a7";
   const signal = "#2fa98f";
+  const display = faces ? "Display" : "serif";
 
   return new ImageResponse(
     (
@@ -59,43 +69,42 @@ export default async function OpengraphImage({
           justifyContent: "space-between",
           background: ink,
           padding: "72px 80px",
-          fontFamily: font ? "Display" : "sans-serif",
+          fontFamily: display,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           <div style={{ display: "flex", alignItems: "flex-end", gap: 7 }}>
-            <div style={{ width: 14, height: 24, borderRadius: 5, background: bone }} />
-            <div style={{ width: 14, height: 38, borderRadius: 5, background: bone }} />
-            <div style={{ width: 14, height: 52, borderRadius: 5, background: bone }} />
-            <div style={{ width: 14, height: 68, borderRadius: 5, background: signal }} />
+            <div style={{ width: 12, height: 24, background: bone }} />
+            <div style={{ width: 12, height: 38, background: bone }} />
+            <div style={{ width: 12, height: 52, background: bone }} />
+            <div style={{ width: 12, height: 68, background: signal }} />
           </div>
-          <div style={{ display: "flex", fontSize: 60, color: bone, letterSpacing: "-0.04em" }}>
-            seria
-            <span style={{ color: signal }}>.</span>
-          </div>
+          <div style={{ display: "flex", fontSize: 58, color: bone }}>seria</div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
               display: "flex",
-              fontSize: 76,
-              lineHeight: 1.04,
+              fontSize: 82,
+              lineHeight: 1.06,
               color: bone,
-              letterSpacing: "-0.045em",
-              maxWidth: 900,
+              letterSpacing: "-0.021em",
+              maxWidth: 920,
             }}
           >
             {dict.hero.titleLead}
           </div>
+          {/* Betoningen ligger i kursiven, precis som i hero. */}
           <div
             style={{
               display: "flex",
-              fontSize: 76,
-              lineHeight: 1.04,
-              color: signal,
-              letterSpacing: "-0.045em",
-              maxWidth: 900,
+              fontSize: 82,
+              lineHeight: 1.06,
+              color: bone,
+              fontStyle: "italic",
+              letterSpacing: "-0.021em",
+              maxWidth: 920,
             }}
           >
             {dict.hero.titleAccent}
@@ -107,21 +116,37 @@ export default async function OpengraphImage({
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            borderTop: `1px solid #273035`,
+            borderTop: "1px solid #273035",
             paddingTop: 28,
-            fontSize: 26,
+            fontSize: 24,
             color: muted,
+            fontFamily: "sans-serif",
           }}
         >
           <div style={{ display: "flex" }}>{dict.hero.eyebrow}</div>
-          <div style={{ display: "flex" }}>{site.url.replace(/^https?:\/\//, "")}</div>
+          <div style={{ display: "flex" }}>
+            {site.url.replace(/^https?:\/\//, "")}
+          </div>
         </div>
       </div>
     ),
     {
       ...size,
-      fonts: font
-        ? [{ name: "Display", data: font, weight: 700 as const, style: "normal" as const }]
+      fonts: faces
+        ? [
+            {
+              name: "Display",
+              data: faces.normal,
+              weight: 400 as const,
+              style: "normal" as const,
+            },
+            {
+              name: "Display",
+              data: faces.italic,
+              weight: 400 as const,
+              style: "italic" as const,
+            },
+          ]
         : undefined,
     },
   );

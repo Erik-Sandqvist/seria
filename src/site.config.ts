@@ -15,6 +15,11 @@ export const site = {
   country: "Sverige",
   /** Calendly/Cal.com-länk för "Boka ett samtal". Tom sträng = knappen länkar till kontaktsidan. */
   bookingUrl: "", // t.ex. "https://cal.com/seria/30min"
+  /**
+   * Bildbandet i hero. Sökväg relativt /public.
+   * Tom sträng = hero utan bild, bara typografi.
+   */
+  heroImage: "/hero.jpeg",
   founded: 2026,
   socials: {
     linkedin: "", // t.ex. "https://linkedin.com/company/seria"

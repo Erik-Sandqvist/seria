@@ -39,7 +39,7 @@ export function About({
             </Reveal>
 
             <Reveal delay={100}>
-              <h3 className="font-mono text-xs uppercase tracking-[0.22em] text-ink-400">
+              <h3 className="text-sm text-ink-400">
                 {dict.about.valuesTitle}
               </h3>
               <dl className="mt-6 flex flex-col">
@@ -82,7 +82,7 @@ export function About({
                     <h3 className="font-display text-2xl text-bone-50">
                       {member.name}
                     </h3>
-                    <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink-400">
+                    <p className="text-sm text-ink-400">
                       {member.role[locale]}
                     </p>
                   </div>

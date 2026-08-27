@@ -12,7 +12,7 @@ export default function NotFound() {
   return (
     <main className="flex flex-1 items-center">
       <Container className="py-32">
-        <p className="font-mono text-xs uppercase tracking-[0.22em] text-signal-500">
+        <p className="text-sm text-signal-400">
           {dict.notFound.code}
         </p>
         <h1 className="mt-4 font-display text-title text-bone-50">

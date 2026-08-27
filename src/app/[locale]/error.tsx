@@ -25,7 +25,7 @@ export default function Error({
   return (
     <main className="flex flex-1 items-center">
       <Container className="py-32">
-        <p className="font-mono text-xs tracking-[0.22em] text-signal-500 uppercase">
+        <p className="text-sm text-signal-400">
           Fel
         </p>
         <h1 className="mt-4 font-display text-title text-bone-50">

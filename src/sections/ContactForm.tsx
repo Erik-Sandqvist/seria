@@ -11,7 +11,7 @@ const fieldClass =
   "w-full rounded-xl border border-ink-800 bg-ink-950 px-4 py-3 text-bone-50 placeholder:text-ink-600 transition-colors focus:border-signal-500 focus:outline-none";
 
 const labelClass =
-  "font-mono text-xs uppercase tracking-[0.16em] text-ink-400";
+  "text-sm text-ink-400";
 
 type FormCopy = Dictionary["contact"]["form"];
 

@@ -49,6 +49,11 @@ export function Section({
   );
 }
 
+/**
+ * Sektionsmarkör: en kort linje och en etikett i vanlig gemen.
+ * Medvetet inte versal monospace med brett teckenmellanrum — den
+ * varianten sitter på var tredje sajt och säger ingenting.
+ */
 export function Eyebrow({
   children,
   tone = "ink",
@@ -61,11 +66,18 @@ export function Eyebrow({
   return (
     <p
       className={cn(
-        "font-mono text-xs uppercase tracking-[0.22em]",
-        tone === "bone" ? "text-bone-500" : "text-signal-500",
+        "flex items-center gap-3 text-[0.8125rem]",
+        tone === "bone" ? "text-bone-500" : "text-ink-400",
         className,
       )}
     >
+      <span
+        aria-hidden="true"
+        className={cn(
+          "h-px w-6 shrink-0",
+          tone === "bone" ? "bg-bone-300" : "bg-ink-700",
+        )}
+      />
       {children}
     </p>
   );
@@ -76,7 +88,11 @@ export function SectionHeading({
   title,
   lead,
   tone = "ink",
-  align = "left",
+  /**
+   * "stacked" staplar rubrik och ingress. "split" ställer ingressen bredvid
+   * rubriken på stora skärmar — sektionerna ska inte alla ha samma form.
+   */
+  layout = "stacked",
   as: Heading = "h2",
   className,
 }: {
@@ -84,38 +100,56 @@ export function SectionHeading({
   title: ReactNode;
   lead?: string;
   tone?: "ink" | "bone";
-  align?: "left" | "center";
+  layout?: "stacked" | "split";
   /** Undersidor sätter "h1" här; startsidan har sin h1 i hero-sektionen. */
   as?: "h1" | "h2";
   className?: string;
 }) {
-  return (
-    <div
+  const heading = (
+    <Heading
       className={cn(
-        "flex flex-col gap-4",
-        align === "center" ? "items-center text-center" : "max-w-3xl",
-        className,
+        "font-display text-title text-balance",
+        tone === "bone" ? "text-ink-900" : "text-bone-50",
       )}
     >
-      {eyebrow ? <Eyebrow tone={tone}>{eyebrow}</Eyebrow> : null}
-      <Heading
+      {title}
+    </Heading>
+  );
+
+  const body = lead ? (
+    <p
+      className={cn(
+        "text-lg leading-relaxed",
+        layout === "split" ? "max-w-md" : "max-w-2xl",
+        tone === "bone" ? "text-ink-700" : "text-ink-300",
+      )}
+    >
+      {lead}
+    </p>
+  ) : null;
+
+  if (layout === "split") {
+    return (
+      <div
         className={cn(
-          "font-display text-title text-balance",
-          tone === "bone" ? "text-ink-900" : "text-bone-50",
+          "grid gap-8 lg:grid-cols-[1.35fr_1fr] lg:items-end lg:gap-16",
+          className,
         )}
       >
-        {title}
-      </Heading>
-      {lead ? (
-        <p
-          className={cn(
-            "max-w-2xl text-lg leading-relaxed",
-            tone === "bone" ? "text-ink-700" : "text-ink-300",
-          )}
-        >
-          {lead}
-        </p>
-      ) : null}
+        <div className="flex flex-col gap-4">
+          {eyebrow ? <Eyebrow tone={tone}>{eyebrow}</Eyebrow> : null}
+          {heading}
+        </div>
+        {body ? <div className="lg:pb-2">{body}</div> : null}
+      </div>
+    );
+  }
+
+  return (
+    <div className={cn("flex max-w-3xl flex-col gap-4", className)}>
+      {eyebrow ? <Eyebrow tone={tone}>{eyebrow}</Eyebrow> : null}
+      {heading}
+      {body}
     </div>
   );
 }
@@ -123,13 +157,14 @@ export function SectionHeading({
 type ButtonVariant = "primary" | "secondary" | "ghost" | "onBone";
 
 const buttonBase =
-  "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium whitespace-nowrap transition-[transform,background-color,border-color,color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5";
+  "group inline-flex items-center justify-center gap-2.5 rounded-sm px-5 py-3 text-sm whitespace-nowrap transition-colors duration-200";
 
 const buttonVariants: Record<ButtonVariant, string> = {
-  primary: "bg-signal-500 text-ink-950 hover:bg-signal-400",
-  secondary:
-    "border border-ink-700 text-bone-100 hover:border-bone-300 hover:bg-ink-800",
-  ghost: "text-bone-100 hover:text-signal-500",
+  primary: "bg-bone-50 text-ink-950 hover:bg-bone-200",
+  secondary: "border border-ink-700 text-bone-100 hover:border-bone-300",
+  // Textlänk med hårfin accentlinje — accentfärgen bär bara understrykningen.
+  ghost:
+    "px-0 py-1 text-bone-100 underline decoration-signal-500 decoration-1 underline-offset-[6px] hover:decoration-bone-100",
   onBone: "bg-ink-900 text-bone-50 hover:bg-ink-800",
 };
 

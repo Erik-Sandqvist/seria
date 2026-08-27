@@ -27,7 +27,7 @@ const sv = {
     services: {
       title: "Tjänster",
       description:
-        "Webbplatser, webbappar, e-handel, design och teknisk SEO. Allt byggt från grunden — inga mallar.",
+        "Webbplatser, webbappar, e-handel, design och teknisk SEO. Allt byggt från grunden, inga mallar.",
     },
     pricing: {
       title: "Priser",
@@ -55,7 +55,7 @@ const sv = {
     privacy: {
       title: "Integritetspolicy",
       description:
-        "Vilka personuppgifter vi behandlar, varför, hur länge — och vilka rättigheter du har.",
+        "Vilka personuppgifter vi behandlar, varför, hur länge och vilka rättigheter du har.",
     },
     terms: {
       title: "Villkor",
@@ -169,45 +169,45 @@ const sv = {
   },
 
   hero: {
-    eyebrow: "Webbstudio · Sverige",
+    eyebrow: `Webbstudio i ${site.city}`,
     titleLead: "Digitala lösningar,",
     titleAccent: "byggda på allvar.",
-    lead: "seria är en liten studio som bygger webbplatser och digitala verktyg åt företag som vill växa. Fast pris innan vi börjar, tydlig process och leverans på veckor — inte månader.",
+    lead: "seria är en liten studio som bygger webbplatser och digitala verktyg åt företag som vill växa. Du får ett fast pris innan vi börjar, och en sajt som är i drift på några veckor.",
     primaryCta: "Boka ett samtal",
     secondaryCta: "Se priser",
-    stats: [
-      { value: "2–3 v", label: "typisk leveranstid" },
-      { value: "Fast", label: "pris innan start" },
-      { value: "< 24 h", label: "svarstid på offert" },
-      { value: "100 %", label: "egen kod, inga mallar" },
-    ],
+    note: "Vi tar ett fåtal projekt i taget. Det betyder att du pratar med den som faktiskt skriver koden, och att vi ibland säger nej till uppdrag vi inte hinner göra ordentligt.",
+    noteRole: "grundare",
+    // Håll den här raden aktuell. En gammal tillgänglighetsnotis är värre
+    // än ingen alls.
+    availability: "Vi har plats för nya projekt just nu",
+    location: `${site.city} · arbetar i hela ${site.country}`,
   },
 
   manifesto: {
     eyebrow: "Vad vi står för",
-    title: "En snygg sajt är lätt. En sajt som gör jobbet är seriöst arbete.",
-    lead: "Vi bygger inte hemsidor för att fylla en ruta på en checklista. Vi bygger dem för att de ska dra in kunder, ladda blixtsnabbt och fortfarande kännas nya om tre år.",
+    title: "Det som avgör om en sajt fungerar syns sällan i skissen.",
+    lead: "En sajt ska dra in kunder, ladda snabbt även på dålig uppkoppling och gå att uppdatera utan att något går sönder. Det är svårare än det låter, och det är där vi lägger tiden.",
     pillars: [
       {
-        title: "Byggt, inte klickat ihop",
-        body: "All kod skrivs från grunden i moderna verktyg — Next.js, TypeScript och React. Ingen tung tema-mall som drar ner sajten och låser in dig.",
+        title: "Vi skriver koden själva",
+        body: "All kod skrivs från grunden i Next.js, TypeScript och React. Ingen tung tema-mall som drar ner sajten och låser in dig hos en leverantör.",
       },
       {
-        title: "Snabbt är en funktion",
+        title: "Laddtid är ett krav, inte en förhoppning",
         body: "Varje sajt vi lämnar ifrån oss ska ladda på under en sekund i mobilen. Det syns i Google, och det syns i hur många som stannar kvar.",
       },
       {
-        title: "En människa som svarar",
-        body: "Du pratar med den som faktiskt bygger sajten. Inga projektledare i mellanhand, inga ärendenummer.",
+        title: "Du pratar med den som bygger",
+        body: "Ingen projektledare i mellanhand, inga ärendenummer. Har du en fråga om sajten svarar den som skrev koden.",
       },
     ],
   },
 
   services: {
     eyebrow: "Tjänster",
-    title: "Allt du behöver för att synas och sälja på nätet.",
+    title: "Webbplatser, webbappar och allt som hör till.",
     allLabel: "Alla tjänster",
-    lead: "Vi tar hela kedjan — strategi, design, kod och drift. Du behöver inte samordna tre olika leverantörer.",
+    lead: "Vi tar hela kedjan: strategi, design, kod och drift. Du behöver inte samordna tre olika leverantörer.",
     items: [
       {
         number: "01",
@@ -245,7 +245,7 @@ const sv = {
       {
         number: "04",
         title: "Design & varumärke",
-        body: "Logotyp, färger, typografi och ett designsystem som håller ihop allt du gör — på webben, i sociala medier och i tryck.",
+        body: "Logotyp, färger, typografi och ett designsystem som håller ihop allt du gör, på webben, i sociala medier och i tryck.",
         bullets: [
           "Logotyp och symbol",
           "Färg och typografi",
@@ -256,7 +256,7 @@ const sv = {
       {
         number: "05",
         title: "SEO & mätning",
-        body: "Teknisk SEO, Core Web Vitals och en uppsättning mätning som visar vad som faktiskt ger dig kunder — inte bara antal besök.",
+        body: "Teknisk SEO, Core Web Vitals och en uppsättning mätning som visar vad som faktiskt ger dig kunder, inte bara antal besök.",
         bullets: [
           "Teknisk SEO-genomgång",
           "Prestandaoptimering",
@@ -267,7 +267,7 @@ const sv = {
       {
         number: "06",
         title: "Drift & förvaltning",
-        body: "Uppdateringar, övervakning, säkerhetskopior och löpande förbättringar. Sajten är inte klar vid lansering — den börjar då.",
+        body: "Uppdateringar, övervakning, säkerhetskopior och löpande förbättringar. Sajten är inte klar vid lansering. Det är då den börjar.",
         bullets: [
           "Övervakning dygnet runt",
           "Säkerhetsuppdateringar",
@@ -284,35 +284,31 @@ const sv = {
     lead: "Fyra steg, inga överraskningar. Du vet vad som händer, vad det kostar och när du får sajten.",
     steps: [
       {
-        step: "Steg 01",
         when: "Dag 0",
         title: "Samtal",
-        body: "Trettio minuter på telefon eller video. Vi går igenom vad du säljer, till vem, och vad sajten ska åstadkomma. Därefter får du ett fast pris och en leveransplan — innan något arbete påbörjas.",
+        body: "Trettio minuter på telefon eller video. Vi går igenom vad du säljer, till vem, och vad sajten ska åstadkomma. Därefter får du ett fast pris och en leveransplan, innan något arbete påbörjas.",
       },
       {
-        step: "Steg 02",
         when: "Vecka 1",
         title: "Struktur & design",
         body: "Vi sätter sidstruktur, texter och en designriktning. Du får se skisser och tycka till innan en enda rad kod skrivs. Det är här ändringar är billiga.",
       },
       {
-        step: "Steg 03",
         when: "Vecka 2",
         title: "Bygge",
-        body: "Vi bygger sajten på riktigt. Du följer arbetet på en live-länk och kan lämna kommentarer direkt i sajten — inga långa mejltrådar med skärmdumpar.",
+        body: "Vi bygger sajten på riktigt. Du följer arbetet på en live-länk och kan lämna kommentarer direkt i sajten, i stället för i långa mejltrådar med skärmdumpar.",
       },
       {
-        step: "Steg 04",
         when: "Vecka 3 →",
         title: "Lansering & efter",
-        body: "Vi publicerar, kopplar domän och mätning, och går igenom hur du sköter sajten själv. Sen finns vi kvar — med förvaltning om du vill, eller bara ett samtal bort om du inte vill.",
+        body: "Vi publicerar, kopplar domän och mätning, och går igenom hur du sköter sajten själv. Sen finns vi kvar, med förvaltning om du vill ha det och annars bara ett samtal bort.",
       },
     ],
   },
 
   pricing: {
     eyebrow: "Priser",
-    title: "Fast pris. Innan vi börjar.",
+    title: "Vad det kostar, och vad som ingår.",
     lead: "Du ska veta exakt vad det kostar innan du säger ja. Alla priser är exklusive moms och gäller ett komplett, driftsatt projekt.",
     popularLabel: "Vanligaste valet",
     ctaLabel: "Kom igång",
@@ -328,7 +324,7 @@ const sv = {
         popular: false,
         tagline: "En stark sida som gör en sak riktigt bra.",
         for: "För dig som behöver komma ut snabbt: nystartat företag, en tjänst att sälja eller en kampanj som ska landa.",
-        timeline: "Cirka 1 vecka",
+        timeline: "Cirka 2 veckor",
         features: [
           "Landningssida, upp till 5 sektioner",
           "Egen design efter ditt varumärke",
@@ -351,7 +347,7 @@ const sv = {
         features: [
           "Upp till 8 sidor",
           "Egen design och designsystem",
-          "CMS — du uppdaterar texter och bilder själv",
+          "CMS där du uppdaterar texter och bilder själv",
           "Bokning, formulär eller offertflöde",
           "Teknisk SEO och prestandaoptimering",
           "Analytics med målspårning",
@@ -417,7 +413,7 @@ const sv = {
 
   work: {
     eyebrow: "Case",
-    title: "Vi har precis börjat — och det är din fördel.",
+    title: "Vi har precis börjat, och det är din fördel.",
     lead: `seria startade ${site.founded}. Vi bygger vår portfolio just nu, vilket betyder att de första kunderna får oförskämt mycket uppmärksamhet per krona.`,
     emptyState: {
       title: "Bli ett av våra första case",
@@ -442,11 +438,11 @@ const sv = {
   about: {
     eyebrow: "Om oss",
     title: "Liten studio. Stor omsorg om detaljerna.",
-    lead: `seria är en webbstudio från ${site.city} som bygger webbplatser och digitala lösningar åt företag i hela Sverige. Vi är små med flit — det betyder att du pratar med den som bygger, och att inget faller mellan stolarna.`,
+    lead: `seria är en webbstudio från ${site.city} som bygger webbplatser och digitala lösningar åt företag i hela Sverige. Vi är små med flit. Det betyder att du pratar med den som bygger, och att inget faller mellan stolarna.`,
     story: [
       "Vi startade seria för att för många företag betalar för mycket för för lite. Antingen får de en tema-mall som ser ut som tusen andra sajter, eller en byråprocess där halva budgeten går åt till möten.",
       "Vi gör tvärtom: ett samtal, ett fast pris, och sen bygger vi. Modern kod, egen design och en sajt som är snabb nog att märkas.",
-      "Namnet betyder ungefär seriös — och det är ribban. Vi tar din verksamhet på lika stort allvar som du gör.",
+      "Namnet betyder ungefär seriös, och det är ribban. Vi tar din verksamhet på lika stort allvar som du gör.",
     ],
     valuesTitle: "Så jobbar vi",
     values: [
@@ -464,7 +460,7 @@ const sv = {
       },
       {
         title: "AI där det hjälper",
-        body: "Vi använder AI för att gå snabbare genom research, kod och utkast. Besluten — design, struktur och ton — tar vi.",
+        body: "Vi använder AI för att gå snabbare genom research, kod och utkast. Besluten om design, struktur och ton tar vi.",
       },
     ],
     teamTitle: "Vem du får jobba med",
@@ -476,11 +472,11 @@ const sv = {
     items: [
       {
         q: "Vad kostar en sajt egentligen?",
-        a: "En landningssida landar på 14\u00a0900 kr och en komplett företagssajt på 29\u00a0900 kr, exklusive moms. Större projekt offereras. Du får ett fast pris efter första samtalet — ingen timdebitering som skenar.",
+        a: "En landningssida landar på 14\u00a0900 kr och en komplett företagssajt på 29\u00a0900 kr, exklusive moms. Större projekt offereras. Du får ett fast pris efter första samtalet. Ingen timdebitering som skenar.",
       },
       {
         q: "Hur lång tid tar det?",
-        a: "En landningssida tar ungefär en vecka, en företagssajt två till tre veckor från att vi fått ditt innehåll. Det som oftast drar ut på tiden är texter och bilder — får vi dem tidigt går det fort.",
+        a: "En landningssida tar ungefär en vecka, en företagssajt två till tre veckor från att vi fått ditt innehåll. Det som oftast drar ut på tiden är texter och bilder. Får vi dem tidigt går det fort.",
       },
       {
         q: "Måste jag ha texter och bilder klara?",
@@ -500,7 +496,7 @@ const sv = {
       },
       {
         q: "Använder ni AI?",
-        a: "Ja, som verktyg. AI hjälper oss gå fortare genom research, kodrutiner och utkast. Design, struktur och ton bestämmer människor — annars hade din sajt låtit som alla andras.",
+        a: "Ja, som verktyg. AI hjälper oss gå fortare genom research, kodrutiner och utkast. Design, struktur och ton bestämmer människor. Annars hade din sajt låtit som alla andras.",
       },
       {
         q: "Måste vi ses fysiskt?",
@@ -511,7 +507,7 @@ const sv = {
 
   ctaBand: {
     title: "Har du ett projekt på gång?",
-    body: "Trettio minuter räcker för att veta om vi passar ihop. Du får ett fast pris och en tidsplan — utan att binda dig vid något.",
+    body: "Trettio minuter räcker för att veta om vi passar ihop. Du får ett fast pris och en tidsplan, utan att binda dig vid något.",
     primary: "Boka ett samtal",
     secondary: "Skicka ett meddelande",
   },
@@ -559,7 +555,7 @@ const sv = {
       submit: "Skicka förfrågan",
       submitting: "Skickar …",
       privacy: "Vi använder dina uppgifter enbart för att svara på din förfrågan.",
-      successTitle: "Tack — meddelandet är skickat.",
+      successTitle: "Tack, meddelandet är skickat.",
       successBody:
         "Vi hör av oss inom 24 timmar på vardagar. Brådskar det får du gärna ringa.",
       errorTitle: "Något gick fel.",
@@ -581,7 +577,7 @@ const sv = {
     privacy: "Integritetspolicy",
     terms: "Villkor",
     rights: "Alla rättigheter förbehållna.",
-    builtWith: "Byggd i Next.js. Snabb med flit.",
+    builtWith: "Byggd i Next.js",
   },
 
   notFound: {

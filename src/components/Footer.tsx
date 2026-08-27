@@ -35,7 +35,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-xs uppercase tracking-[0.16em] text-ink-400 transition-colors hover:text-signal-500"
+                      className="text-sm text-ink-400 transition-colors hover:text-bone-50"
                     >
                       {name}
                     </a>
@@ -46,14 +46,14 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           </div>
 
           <nav aria-label={dict.footer.navTitle} className="flex flex-col gap-3">
-            <h2 className="font-mono text-xs uppercase tracking-[0.22em] text-ink-400">
+            <h2 className="text-sm text-ink-400">
               {dict.footer.navTitle}
             </h2>
             {footerNav.map((item) => (
               <Link
                 key={item.page}
                 href={href(locale, item.page)}
-                className="text-sm text-bone-100 transition-colors hover:text-signal-500"
+                className="text-sm text-bone-100 transition-colors hover:text-bone-50"
               >
                 {dict.nav[item.key]}
               </Link>
@@ -61,18 +61,18 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           </nav>
 
           <div className="flex flex-col gap-3">
-            <h2 className="font-mono text-xs uppercase tracking-[0.22em] text-ink-400">
+            <h2 className="text-sm text-ink-400">
               {dict.footer.contactTitle}
             </h2>
             <a
               href={`mailto:${site.email}`}
-              className="text-sm text-bone-100 transition-colors hover:text-signal-500"
+              className="text-sm text-bone-100 transition-colors hover:text-bone-50"
             >
               {site.email}
             </a>
             <a
               href={`tel:${site.phone.replace(/\s/g, "")}`}
-              className="text-sm text-bone-100 transition-colors hover:text-signal-500"
+              className="text-sm text-bone-100 transition-colors hover:text-bone-50"
             >
               {site.phone}
             </a>
@@ -92,18 +92,18 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <nav aria-label={dict.footer.legalTitle} className="flex gap-5">
             <Link
               href={href(locale, "privacy")}
-              className="transition-colors hover:text-signal-500"
+              className="transition-colors hover:text-bone-50"
             >
               {dict.footer.privacy}
             </Link>
             <Link
               href={href(locale, "terms")}
-              className="transition-colors hover:text-signal-500"
+              className="transition-colors hover:text-bone-50"
             >
               {dict.footer.terms}
             </Link>
           </nav>
-          <p className="font-mono uppercase tracking-[0.16em]">
+          <p>
             {dict.footer.builtWith}
           </p>
         </div>

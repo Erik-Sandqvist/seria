@@ -2,31 +2,24 @@ import { cn } from "@/lib/cn";
 
 /**
  * seria-märket: fyra staplar i stigande höjd — en serie.
- * Sista stapeln bär signalfärgen och fungerar som varumärkets accent.
+ * Staplarna står fritt, utan bricka bakom sig; sista stapeln bär
+ * signalfärgen och är enda stället accenten syns i sidhuvudet.
  */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 32 32"
+      viewBox="0 0 26 26"
       role="img"
       aria-hidden="true"
       focusable="false"
-      className={cn("h-7 w-7", className)}
+      className={cn("h-5 w-5", className)}
     >
-      <rect width="32" height="32" rx="8" className="fill-ink-800" />
       <g className="fill-bone-100">
-        <rect x="6" y="19" width="4" height="7" rx="1.4" />
-        <rect x="12" y="15" width="4" height="11" rx="1.4" />
-        <rect x="18" y="11" width="4" height="15" rx="1.4" />
+        <rect x="0" y="15" width="3" height="9" />
+        <rect x="6" y="11" width="3" height="13" />
+        <rect x="12" y="7" width="3" height="17" />
       </g>
-      <rect
-        x="24"
-        y="6"
-        width="4"
-        height="20"
-        rx="1.4"
-        className="fill-signal-500"
-      />
+      <rect x="18" y="2" width="3" height="22" className="fill-signal-500" />
     </svg>
   );
 }
@@ -39,10 +32,10 @@ export function Logo({
   markClassName?: string;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <LogoMark className={markClassName} />
-      <span className="font-display text-2xl leading-none tracking-tight text-bone-50">
-        seria<span className="text-signal-500">.</span>
+    <span className={cn("inline-flex items-baseline gap-2.5", className)}>
+      <LogoMark className={cn("translate-y-0.5", markClassName)} />
+      <span className="font-display text-2xl leading-none text-bone-50">
+        seria
       </span>
     </span>
   );

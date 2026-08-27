@@ -33,34 +33,36 @@ export function Services({
             eyebrow={dict.services.eyebrow}
             title={dict.services.title}
             lead={dict.services.lead}
+            layout="split"
             as={headingAs}
           />
         </Reveal>
 
-        <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-ink-800 bg-ink-800 md:grid-cols-2 xl:grid-cols-3">
+        {/* Register, inte kortrutnät: numret, tjänsten och vad som ingår
+            står på samma rad och läses uppifrån och ned. */}
+        <ul className="mt-16 border-t border-ink-800">
           {items.map((service, i) => (
-            <Reveal as="li" key={service.number} delay={(i % 3) * 80}>
-              <article className="group flex h-full flex-col gap-4 bg-ink-950 p-8 transition-colors duration-300 hover:bg-ink-900">
-                <div className="flex items-baseline justify-between">
-                  <span className="font-mono text-xs tracking-[0.16em] text-ink-400">
-                    {service.number}
-                  </span>
-                  <ArrowRight className="h-4 w-4 -translate-x-1 text-ink-600 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:text-signal-500 group-hover:opacity-100" />
+            <Reveal as="li" key={service.number} delay={i * 70}>
+              <article className="grid gap-x-10 gap-y-4 border-b border-ink-800 py-9 md:grid-cols-[3.5rem_minmax(0,1fr)_minmax(0,14rem)]">
+                <span
+                  aria-hidden="true"
+                  className="font-display text-2xl leading-none text-ink-600 md:pt-1"
+                >
+                  {service.number}
+                </span>
+
+                <div>
+                  <h3 className="text-xl font-medium text-bone-50">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 max-w-xl leading-relaxed text-ink-300">
+                    {service.body}
+                  </p>
                 </div>
-                <h3 className="font-display text-2xl text-bone-50">
-                  {service.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-ink-300">
-                  {service.body}
-                </p>
-                <ul className="mt-auto flex flex-wrap gap-2 pt-4">
+
+                <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-ink-400 md:flex-col md:gap-y-2 md:pt-1.5">
                   {service.bullets.map((bullet) => (
-                    <li
-                      key={bullet}
-                      className="rounded-full border border-ink-800 px-3 py-1 text-xs text-ink-300"
-                    >
-                      {bullet}
-                    </li>
+                    <li key={bullet}>{bullet}</li>
                   ))}
                 </ul>
               </article>
@@ -69,8 +71,8 @@ export function Services({
         </ul>
 
         {showCta ? (
-          <Reveal className="mt-10 flex justify-start">
-            <ButtonLink href={href(locale, "services")} variant="secondary">
+          <Reveal className="mt-10">
+            <ButtonLink href={href(locale, "services")} variant="ghost">
               {dict.services.allLabel}
               <ArrowRight />
             </ButtonLink>

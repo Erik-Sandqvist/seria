@@ -28,7 +28,7 @@ const en: Dictionary = {
     services: {
       title: "Services",
       description:
-        "Websites, web apps, e-commerce, design and technical SEO. Built from scratch — no templates.",
+        "Websites, web apps, e-commerce, design and technical SEO. Built from scratch, no templates.",
     },
     pricing: {
       title: "Pricing",
@@ -56,7 +56,7 @@ const en: Dictionary = {
     privacy: {
       title: "Privacy policy",
       description:
-        "What personal data we process, why, for how long — and what rights you have.",
+        "What personal data we process, why, for how long and what rights you have.",
     },
     terms: {
       title: "Terms",
@@ -170,45 +170,44 @@ const en: Dictionary = {
   },
 
   hero: {
-    eyebrow: "Web studio · Sweden",
+    eyebrow: `Web studio in ${site.city}`,
     titleLead: "Digital work,",
     titleAccent: "built to be taken seriously.",
-    lead: "seria is a small studio building websites and digital tools for companies that want to grow. A fixed price before we start, a clear process, and delivery in weeks — not months.",
+    lead: "seria is a small studio building websites and digital tools for companies that want to grow. You get a fixed price before we start, and a site that is live within a few weeks.",
     primaryCta: "Book a call",
     secondaryCta: "See pricing",
-    stats: [
-      { value: "2–3 wk", label: "typical delivery" },
-      { value: "Fixed", label: "price up front" },
-      { value: "< 24 h", label: "quote turnaround" },
-      { value: "100 %", label: "custom code, no templates" },
-    ],
+    note: "We take on a handful of projects at a time. That means you talk to the person actually writing the code, and that we sometimes turn work down rather than do it badly.",
+    noteRole: "founder",
+    // Keep this line current. A stale availability note is worse than none.
+    availability: "We have room for new projects right now",
+    location: `${site.city} · working across Sweden`,
   },
 
   manifesto: {
     eyebrow: "What we stand for",
-    title: "A good-looking site is easy. A site that does the work is serious craft.",
-    lead: "We do not build websites to tick a box. We build them to bring in customers, load instantly and still feel current three years from now.",
+    title: "What decides whether a site works rarely shows up in the mockup.",
+    lead: "A site has to bring in customers, load fast on a bad connection and be editable without breaking. That is harder than it sounds, and it is where our time goes.",
     pillars: [
       {
-        title: "Built, not assembled",
-        body: "Every line is written from scratch in modern tools — Next.js, TypeScript and React. No heavy theme dragging the site down and locking you in.",
+        title: "We write the code ourselves",
+        body: "Every line is written from scratch in Next.js, TypeScript and React. No heavy theme dragging the site down and locking you in with one supplier.",
       },
       {
-        title: "Speed is a feature",
+        title: "Load time is a requirement, not a hope",
         body: "Every site we ship should load in under a second on mobile. Google notices, and so does everyone who decides whether to stay.",
       },
       {
-        title: "A human who answers",
-        body: "You talk to the person actually building your site. No account manager in between, no ticket numbers.",
+        title: "You talk to the person building it",
+        body: "No account manager in between, no ticket numbers. Ask a question about the site and the person who wrote the code answers.",
       },
     ],
   },
 
   services: {
     eyebrow: "Services",
-    title: "Everything you need to be seen and sell online.",
+    title: "Websites, web apps and everything around them.",
     allLabel: "All services",
-    lead: "We handle the whole chain — strategy, design, code and hosting. You do not have to coordinate three different suppliers.",
+    lead: "We handle the whole chain: strategy, design, code and hosting. You do not have to coordinate three different suppliers.",
     items: [
       {
         number: "01",
@@ -246,7 +245,7 @@ const en: Dictionary = {
       {
         number: "04",
         title: "Design & brand",
-        body: "Logo, colour, typography and a design system that holds everything together — on the web, in social media and in print.",
+        body: "Logo, colour, typography and a design system that holds everything together, on the web, in social media and in print.",
         bullets: [
           "Logo and symbol",
           "Colour and typography",
@@ -257,7 +256,7 @@ const en: Dictionary = {
       {
         number: "05",
         title: "SEO & measurement",
-        body: "Technical SEO, Core Web Vitals and analytics that show what actually brings in customers — not just visitor counts.",
+        body: "Technical SEO, Core Web Vitals and analytics that show what actually brings in customers, not just visitor counts.",
         bullets: [
           "Technical SEO audit",
           "Performance work",
@@ -268,7 +267,7 @@ const en: Dictionary = {
       {
         number: "06",
         title: "Hosting & care",
-        body: "Updates, monitoring, backups and continuous improvement. A site is not finished at launch — that is where it starts.",
+        body: "Updates, monitoring, backups and continuous improvement. A site is not finished at launch. That is where it starts.",
         bullets: [
           "Round-the-clock monitoring",
           "Security updates",
@@ -285,35 +284,31 @@ const en: Dictionary = {
     lead: "Four steps, no surprises. You know what happens, what it costs and when you get the site.",
     steps: [
       {
-        step: "Step 01",
         when: "Day 0",
         title: "The call",
-        body: "Thirty minutes on the phone or video. We go through what you sell, to whom, and what the site needs to achieve. Then you get a fixed price and a delivery plan — before any work starts.",
+        body: "Thirty minutes on the phone or video. We go through what you sell, to whom, and what the site needs to achieve. Then you get a fixed price and a delivery plan, before any work starts.",
       },
       {
-        step: "Step 02",
         when: "Week 1",
         title: "Structure & design",
         body: "We settle the page structure, the copy and a design direction. You see the drafts and weigh in before a single line of code is written. This is where changes are cheap.",
       },
       {
-        step: "Step 03",
         when: "Week 2",
         title: "Build",
-        body: "We build the real thing. You follow along on a live link and leave comments directly on the site — no long email threads full of screenshots.",
+        body: "We build the real thing. You follow along on a live link and leave comments directly on the site, instead of in long email threads full of screenshots.",
       },
       {
-        step: "Step 04",
         when: "Week 3 →",
         title: "Launch & after",
-        body: "We publish, connect the domain and analytics, and walk you through running the site yourself. Then we stay available — on a care plan if you want one, or just a call away if you do not.",
+        body: "We publish, connect the domain and analytics, and walk you through running the site yourself. Then we stay available, on a care plan if you want one and otherwise just a call away.",
       },
     ],
   },
 
   pricing: {
     eyebrow: "Pricing",
-    title: "A fixed price. Before we start.",
+    title: "What it costs, and what you get for it.",
     lead: "You should know exactly what it costs before you say yes. All prices exclude VAT and cover a complete, launched project.",
     popularLabel: "Most chosen",
     ctaLabel: "Get started",
@@ -352,7 +347,7 @@ const en: Dictionary = {
         features: [
           "Up to 8 pages",
           "Custom design and a design system",
-          "CMS — you edit text and images yourself",
+          "CMS where you edit text and images yourself",
           "Booking, forms or a quote flow",
           "Technical SEO and performance work",
           "Analytics with goal tracking",
@@ -418,7 +413,7 @@ const en: Dictionary = {
 
   work: {
     eyebrow: "Work",
-    title: "We have just started — and that is your advantage.",
+    title: "We have just started, and that is your advantage.",
     lead: `seria launched in ${site.founded}. We are building our portfolio right now, which means the first clients get an unreasonable amount of attention per krona.`,
     emptyState: {
       title: "Be one of our first cases",
@@ -433,11 +428,11 @@ const en: Dictionary = {
   about: {
     eyebrow: "About",
     title: "Small studio. Serious care for the details.",
-    lead: `seria is a web studio based in ${site.city}, building websites and digital solutions for companies across Sweden. We are small on purpose — it means you talk to the person building, and nothing falls through the cracks.`,
+    lead: `seria is a web studio based in ${site.city}, building websites and digital solutions for companies across Sweden. We are small on purpose. It means you talk to the person building, and nothing falls through the cracks.`,
     story: [
       "We started seria because too many companies pay too much for too little. Either they get a theme that looks like a thousand other sites, or an agency process where half the budget goes to meetings.",
       "We do the opposite: one call, one fixed price, then we build. Modern code, custom design and a site fast enough to notice.",
-      "The name roughly means serious — and that is the bar. We take your business as seriously as you do.",
+      "The name roughly means serious, and that is the bar. We take your business as seriously as you do.",
     ],
     valuesTitle: "How we work",
     values: [
@@ -455,7 +450,7 @@ const en: Dictionary = {
       },
       {
         title: "AI where it helps",
-        body: "We use AI to move faster through research, code and drafts. The decisions — design, structure and tone — are ours.",
+        body: "We use AI to move faster through research, code and drafts. The decisions about design, structure and tone are ours.",
       },
     ],
     teamTitle: "Who you will work with",
@@ -467,11 +462,11 @@ const en: Dictionary = {
     items: [
       {
         q: "What does a site actually cost?",
-        a: "A landing page lands at SEK 14,900 and a complete company site at SEK 29,900, excluding VAT. Larger projects are quoted. You get a fixed price after the first call — no hourly billing that runs away.",
+        a: "A landing page lands at SEK 14,900 and a complete company site at SEK 29,900, excluding VAT. Larger projects are quoted. You get a fixed price after the first call. No hourly billing that runs away.",
       },
       {
         q: "How long does it take?",
-        a: "A landing page takes about a week, a company site two to three weeks from the moment we have your content. What usually slows things down is text and images — get them to us early and it goes fast.",
+        a: "A landing page takes about a week, a company site two to three weeks from the moment we have your content. What usually slows things down is text and images. Get them to us early and it goes fast.",
       },
       {
         q: "Do I need my copy and images ready?",
@@ -491,7 +486,7 @@ const en: Dictionary = {
       },
       {
         q: "Do you use AI?",
-        a: "Yes, as a tool. AI helps us move faster through research, routine code and drafts. Design, structure and tone are decided by people — otherwise your site would sound like everyone else's.",
+        a: "Yes, as a tool. AI helps us move faster through research, routine code and drafts. Design, structure and tone are decided by people. Otherwise your site would sound like everyone else's.",
       },
       {
         q: "Do we have to meet in person?",
@@ -502,7 +497,7 @@ const en: Dictionary = {
 
   ctaBand: {
     title: "Got a project coming up?",
-    body: "Thirty minutes is enough to know whether we are a fit. You get a fixed price and a timeline — with no commitment.",
+    body: "Thirty minutes is enough to know whether we are a fit. You get a fixed price and a timeline, with no commitment.",
     primary: "Book a call",
     secondary: "Send a message",
   },
@@ -550,7 +545,7 @@ const en: Dictionary = {
       submit: "Send enquiry",
       submitting: "Sending …",
       privacy: "We use your details only to answer your enquiry.",
-      successTitle: "Thanks — your message is on its way.",
+      successTitle: "Thanks, your message is on its way.",
       successBody:
         "We will get back to you within 24 hours on weekdays. If it is urgent, give us a call.",
       errorTitle: "Something went wrong.",
@@ -572,7 +567,7 @@ const en: Dictionary = {
     privacy: "Privacy policy",
     terms: "Terms",
     rights: "All rights reserved.",
-    builtWith: "Built with Next.js. Fast on purpose.",
+    builtWith: "Built with Next.js",
   },
 
   notFound: {

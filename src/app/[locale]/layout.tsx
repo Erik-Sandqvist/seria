@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Familjen_Grotesk, Geist_Mono, Instrument_Sans } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/content";
 import { revealScript } from "@/lib/reveal-script";
@@ -9,18 +9,17 @@ import "../globals.css";
 
 // Egna variabelnamn (…-src) så att @theme kan lägga på reservtypsnitt.
 // Pekade båda på samma namn skuggade next/font hela reservkedjan.
-const display = Familjen_Grotesk({
+// Serif i rubrik mot grotesk i brödtext — samma gjutare (Instrument),
+// så paret är avsiktligt och inte hopplockat.
+const display = Instrument_Serif({
   variable: "--font-display-src",
+  weight: "400",
+  style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
 });
 const body = Instrument_Sans({
   variable: "--font-body-src",
-  subsets: ["latin"],
-  display: "swap",
-});
-const mono = Geist_Mono({
-  variable: "--font-mono-src",
   subsets: ["latin"],
   display: "swap",
 });
@@ -53,7 +52,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={dict.htmlLang}
-      className={`${display.variable} ${body.variable} ${mono.variable} h-full`}
+      className={`${display.variable} ${body.variable} h-full`}
       suppressHydrationWarning
     >
       <head>

@@ -19,10 +19,10 @@ export function Faq({ dict }: { dict: Dictionary }) {
                     <span className="text-balance">{item.q}</span>
                     <span
                       aria-hidden="true"
-                      className="relative h-4 w-4 shrink-0"
+                      className="relative h-4 w-4 shrink-0 text-ink-400 transition-colors group-hover:text-bone-100 group-open:text-bone-100"
                     >
-                      <span className="absolute top-1/2 left-0 h-px w-4 bg-signal-500" />
-                      <span className="absolute top-0 left-1/2 h-4 w-px bg-signal-500 transition-transform duration-300 group-open:rotate-90 group-open:opacity-0" />
+                      <span className="absolute top-1/2 left-0 h-px w-4 bg-current" />
+                      <span className="absolute top-0 left-1/2 h-4 w-px bg-current transition-transform duration-300 group-open:rotate-90 group-open:opacity-0" />
                     </span>
                   </summary>
                   <p className="max-w-2xl pb-6 leading-relaxed text-ink-300">

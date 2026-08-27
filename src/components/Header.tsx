@@ -94,7 +94,7 @@ export function Header({
         <div className="hidden items-center gap-4 lg:flex">
           <Link
             href={alternatePath(current, otherLocale)}
-            className="font-mono text-xs uppercase tracking-[0.16em] text-ink-400 transition-colors hover:text-bone-50"
+            className="text-sm text-ink-400 transition-colors hover:text-bone-50"
           >
             {locale === "sv" ? "EN" : "SV"}
           </Link>
@@ -115,7 +115,7 @@ export function Header({
           aria-controls="mobile-nav"
           className="flex items-center gap-2 text-sm text-bone-100 lg:hidden"
         >
-          <span className="font-mono text-xs uppercase tracking-[0.16em]">
+          <span className="text-sm">
             {open ? nav.close : nav.menu}
           </span>
           <span className="relative flex h-4 w-5 flex-col justify-center">
@@ -158,7 +158,7 @@ export function Header({
             <Link
               href={alternatePath(current, otherLocale)}
               onClick={() => setOpen(false)}
-              className="font-mono text-xs uppercase tracking-[0.16em] text-ink-400"
+              className="text-sm text-ink-400"
             >
               {nav.switchTo}
             </Link>
