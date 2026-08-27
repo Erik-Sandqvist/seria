@@ -30,7 +30,7 @@ export function Manifesto({ dict }: { dict: Dictionary }) {
                   <div className="grid gap-x-8 gap-y-2 border-t border-ink-800 py-8 sm:grid-cols-[2.5rem_1fr]">
                     <span
                       aria-hidden="true"
-                      className="font-display text-2xl leading-none text-ink-600"
+                      className="font-display text-2xl leading-none text-signal-600"
                     >
                       {i + 1}
                     </span>

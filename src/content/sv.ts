@@ -275,6 +275,17 @@ const sv = {
           "Löpande småändringar",
         ],
       },
+      {
+        number: "07",
+        title: "Konsult på uppdrag",
+        body: "Behöver ni förstärkning i ert eget team? Vi tar konsultuppdrag inom testning, DevOps och webbutveckling — på plats i Göteborg eller på distans, korta insatser såväl som längre.",
+        bullets: [
+          "Testning & kvalitetssäkring",
+          "DevOps & CI/CD",
+          "Webbutveckling",
+          "Korta eller långa uppdrag",
+        ],
+      },
     ],
   },
 

@@ -46,7 +46,7 @@ export function ProcessSteps({
                   <span
                     aria-hidden="true"
                     className={`font-display text-3xl leading-none ${
-                      onBone ? "text-bone-500" : "text-ink-600"
+                      onBone ? "text-signal-600" : "text-signal-500"
                     }`}
                   >
                     {String(i + 1).padStart(2, "0")}

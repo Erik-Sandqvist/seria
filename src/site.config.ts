@@ -9,9 +9,12 @@ export const site = {
   legalName: "Seria", // BYT UT till registrerat firmanamn, t.ex. "Seria AB"
   orgNumber: "", // BYT UT: organisationsnummer, visas i footern när det är ifyllt
   url: "https://seria.se", // BYT UT om domänen blir en annan
-  email: "hej@seria.se", // BYT UT
-  phone: "+46 70 000 00 00", // BYT UT
-  city: "Stockholm", // BYT UT till din ort
+  /** TILLFÄLLIG adress — byt till en på egen domän före lansering.
+   *  Obs: den här kan tas emot av formuläret, men CONTACT_FROM_EMAIL
+   *  måste ligga på en domän som är verifierad hos Resend. */
+  email: "esandqvist04@gmail.com",
+  phone: "+46 73 544 05 70",
+  city: "Göteborg",
   country: "Sverige",
   /** Calendly/Cal.com-länk för "Boka ett samtal". Tom sträng = knappen länkar till kontaktsidan. */
   bookingUrl: "", // t.ex. "https://cal.com/seria/30min"

@@ -82,7 +82,7 @@ export function Pricing({
                 <ul className="mt-4 flex flex-col gap-3">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-3 text-sm text-bone-100">
-                      <Check className="mt-0.5 text-ink-600" />
+                      <Check className="mt-0.5 text-signal-600" />
                       <span className="leading-relaxed">{feature}</span>
                     </li>
                   ))}

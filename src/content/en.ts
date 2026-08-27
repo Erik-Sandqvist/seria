@@ -275,6 +275,17 @@ const en: Dictionary = {
           "Ongoing small changes",
         ],
       },
+      {
+        number: "07",
+        title: "Consulting",
+        body: "Need to reinforce your own team? We take consulting assignments in testing, DevOps and web development — on site in Gothenburg or remote, short engagements as well as long ones.",
+        bullets: [
+          "Testing & QA",
+          "DevOps & CI/CD",
+          "Web development",
+          "Short or long engagements",
+        ],
+      },
     ],
   },
 

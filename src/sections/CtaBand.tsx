@@ -8,7 +8,7 @@ export function CtaBand({ locale, dict }: { locale: Locale; dict: Dictionary }) 
   const bookHref = site.bookingUrl || href(locale, "contact");
 
   return (
-    <section className="border-t border-ink-850 bg-ink-950">
+    <section className="border-t border-pine-500/25 bg-pine-900">
       <Container className="py-24 sm:py-32">
         <Reveal className="grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-end lg:gap-20">
           <h2 className="max-w-2xl font-display text-title text-balance text-bone-50">
@@ -16,7 +16,7 @@ export function CtaBand({ locale, dict }: { locale: Locale; dict: Dictionary }) 
           </h2>
 
           <div>
-            <p className="max-w-md text-lg leading-relaxed text-ink-300">
+            <p className="max-w-md text-lg leading-relaxed text-bone-300">
               {dict.ctaBand.body}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">

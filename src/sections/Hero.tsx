@@ -10,7 +10,36 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const signature = team[0];
 
   return (
-    <section className="border-b border-ink-850 bg-ink-950">
+    <section className="relative isolate overflow-hidden border-b border-ink-850 bg-ink-950">
+      {site.heroImage ? (
+        // Bilden ligger som oskarp fond bakom hela hero — atmosfär, inte
+        // motiv. Därför tom alt-text och aria-hidden: det finns inget att
+        // beskriva för den som inte ser den.
+        <div aria-hidden="true" className="absolute inset-0 -z-10">
+          {/* Uppskalad med flit: en blur samlar färg utanför sin egen kant,
+              så utan överskott blir bildens ytterkanter urtvättade. */}
+          <Image
+            src={site.heroImage}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="scale-150 object-cover blur-xl"
+          />
+          {/* Hinnan bär läsbarheten. Rubriken ligger i bone-50 och ingressen
+              i ink-300 — utan den här ytan faller kontrasten med motivet. */}
+          <div className="absolute inset-0 bg-ink-950/85" />
+          {/* Drar fonden mot tallgrönt i stället för bildens blå, så accenten
+              bär stämningen och inte bara prickar detaljer. Ligger över den
+              mörka hinnan: pine-900 är ljusare än ink-950 i grön kanal, så
+              hinnan under måste vara tätare för att kontrasten ska hålla. */}
+          <div className="absolute inset-0 bg-pine-900/40" />
+          {/* Djupnar nedåt så sektionen möter nästa utan att fonden lyser
+              igenom i kanten. */}
+          <div className="absolute inset-0 bg-gradient-to-b from-pine-900/40 via-transparent to-ink-950" />
+        </div>
+      ) : null}
+
       <Container className="pt-20 pb-14 sm:pt-28 sm:pb-16">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-20">
           <div>
@@ -61,37 +90,6 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           </Reveal>
         </div>
       </Container>
-
-      {site.heroImage ? (
-        // Bildbandet går ut i kanterna som ett uppslag. Bilden är dekor,
-        // därför tom alt-text; bär den ett budskap ska den beskrivas.
-        <Reveal delay={180}>
-          <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink-900 sm:aspect-[2/1] lg:aspect-[21/9]">
-            <Image
-              src={site.heroImage}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-            {/* Dämpar bilden mot den mörka grunden i stället för att låta
-                den lysa som ett främmande element. */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-ink-950/25 mix-blend-multiply"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-x-0 bottom-0 h-24"
-              style={{
-                backgroundImage:
-                  "linear-gradient(to top, var(--color-ink-950), transparent)",
-              }}
-            />
-          </div>
-        </Reveal>
-      ) : null}
 
       <Reveal delay={200}>
         <Container>

@@ -2,7 +2,8 @@
 
 /* ---------------------------------------------------------------
    seria — designsystem
-   Mörk grund (ink), varm off-white (bone), en signalfärg (signal).
+   Mörk grund (ink), varm off-white (bone), en signalfärg (signal) och
+   en djup tallgrön yta (pine) för CTA-bandet och hero-fonden.
    Allt färgbruk går via dessa tokens — ändra här, inte i komponenter.
    --------------------------------------------------------------- */
 @theme {

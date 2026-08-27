@@ -75,7 +75,7 @@ export function Eyebrow({
         aria-hidden="true"
         className={cn(
           "h-px w-6 shrink-0",
-          tone === "bone" ? "bg-bone-300" : "bg-ink-700",
+          tone === "bone" ? "bg-signal-600" : "bg-signal-500",
         )}
       />
       {children}

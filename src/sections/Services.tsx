@@ -46,7 +46,7 @@ export function Services({
               <article className="grid gap-x-10 gap-y-4 border-b border-ink-800 py-9 md:grid-cols-[3.5rem_minmax(0,1fr)_minmax(0,14rem)]">
                 <span
                   aria-hidden="true"
-                  className="font-display text-2xl leading-none text-ink-600 md:pt-1"
+                  className="font-display text-2xl leading-none text-signal-600 md:pt-1"
                 >
                   {service.number}
                 </span>
