@@ -41,12 +41,12 @@ export const site = {
 
 export const team = [
   {
-    name: "Ditt Namn", // BYT UT
-    role: { sv: "Grundare · Utvecklare & design", en: "Founder · Developer & design" },
+    name: "Erik Sandqvist", 
+    role: { sv: "Grundare · Utvecklare", en: "Founder · Developer" },
     bio: {
       sv: "Bygger hela kedjan – från första skiss till driftsatt sajt. Bakgrund i webbutveckling med fokus på prestanda, tillgänglighet och sajter som faktiskt gör jobbet efter lansering.",
       en: "Builds the whole chain — from first sketch to production. Background in web development with a focus on performance, accessibility and sites that keep working after launch.",
     },
-    initials: "DN", // BYT UT
+    initials: "ES",
   },
 ] as const;
