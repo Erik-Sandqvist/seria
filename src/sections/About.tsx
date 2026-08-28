@@ -1,3 +1,4 @@
+import { DrawnLine } from "@/components/ui/DrawnLine";
 import { Container, Section, SectionHeading } from "@/components/ui/Primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/content";
@@ -15,7 +16,11 @@ export function About({
 }) {
   return (
     <>
-      <Section tone="ink">
+      <Section tone="ink" className="relative isolate overflow-hidden">
+        {/* isolate + -z-10 på dekoren: linjen hamnar bakom texten men
+            fortfarande framför sektionens egen bottenplatta. */}
+        <DrawnLine />
+
         <Container>
           <Reveal>
             <SectionHeading

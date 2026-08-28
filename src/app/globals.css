@@ -117,7 +117,7 @@ body {
 }
 
 /* ---------------------------------------------------------------
-   Rörelse — tre mönster, alla på samma easing.
+   Rörelse — fyra mönster, alla på samma easing.
    Allt annat på sajten står stilla med flit.
    --------------------------------------------------------------- */
 
@@ -175,6 +175,47 @@ body {
   transform-origin: left center;
 }
 
+/* 03 · Dragen linje. Dekorkurvan ritar sig själv när sektionen fälls in.
+   Långsammare än allt annat med flit — den ska anas i utkanten av synfältet
+   medan texten läses, inte dra blicken till sig. */
+
+/* Ändarna tonar ut i sidled så att kurvan glider in i och ut ur sektionen
+   i stället för att kapas tvärt mot kanten. */
+.draw-host {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 14%,
+    #000 86%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 14%,
+    #000 86%,
+    transparent
+  );
+}
+
+/* Dekoren ligger still; det är strecket som rör sig, inte hela lagret. */
+.js .reveal.draw-host {
+  opacity: 1;
+  transform: none;
+}
+
+/* Kurvan bär pathLength="1", så en hel streckcykel är exakt 1 —
+   offset 1 = osynlig, offset 0 = färdigdragen. */
+.js .draw-host .draw-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.6s var(--ease-out-expo);
+}
+
+.js .draw-host[data-reveal="in"] .draw-path {
+  stroke-dashoffset: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -185,6 +226,10 @@ body {
   }
   .js .reveal.mask-host .line-mask > span {
     transform: none;
+  }
+  /* Linjen ligger färdigdragen från start i stället för att snabbspolas. */
+  .js .draw-host .draw-path {
+    stroke-dashoffset: 0;
   }
   *,
   *::before,
