@@ -64,12 +64,12 @@ export function Work({
                       href={caseHref(locale, item.slug)}
                       tabIndex={-1}
                       aria-hidden="true"
-                      className="group block lg:col-span-2"
+                      className="group block w-full max-w-3xl lg:col-span-2"
                     >
                       <BrowserFrame
                         shot={item.images.cover}
                         address={item.url ? hostOf(item.url) : undefined}
-                        sizes="(min-width: 1152px) 1088px, 100vw"
+                        sizes="(min-width: 832px) 768px, 100vw"
                         tone="bone"
                         className="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1"
                       />

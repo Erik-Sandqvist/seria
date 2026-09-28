@@ -82,6 +82,7 @@ export function BrowserFrame({
         alt={shot.alt}
         sizes={sizes}
         priority={priority}
+        quality={90}
         className="block h-auto w-full"
       />
     </div>
@@ -111,6 +112,7 @@ export function PhoneFrame({
         height={shot.height}
         alt={shot.alt}
         sizes={sizes}
+        quality={90}
         className="block h-auto w-full rounded-[1.75rem]"
       />
     </div>
