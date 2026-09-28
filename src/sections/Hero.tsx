@@ -41,9 +41,9 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       ) : null}
 
       <Container className="pt-20 pb-14 sm:pt-28 sm:pb-16">
-        <Reveal>
+        {/* <Reveal>
           <Eyebrow>{dict.hero.eyebrow}</Eyebrow>
-        </Reveal>
+        </Reveal> */}
 
         <Reveal className="mask-host mt-8">
           <h1 className="max-w-[15ch] font-display text-display text-bone-50">
