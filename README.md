@@ -56,7 +56,6 @@ Sök efter `BYT UT`.
 - [ ] `socials` — tomma länkar döljs automatiskt i footern
 - [ ] `team` — ditt namn, din roll, din bio och dina initialer
 - [ ] `RESEND_API_KEY` och `CONTACT_FROM_EMAIL` i `.env.local` (se `.env.example`)
-- [ ] Case-sidan — lägg till `url` för Ramverk när demon är publicerad, se nedan
 - [ ] `[BYT UT]`-markörerna i `legal`-blocket i `sv.ts` och `en.ts`
       (organisationsnummer, och leverantörerna om du inte kör Vercel + Resend)
 - [ ] `legalUpdated` i `site.config.ts` när du ändrat i policyn
@@ -74,8 +73,8 @@ något byter sidan automatiskt till case-läget.
 
 **Listan innehåller just nu Ramverk**, vår demobutik för posters (repot
 `5.5-test`). Det är ett eget konceptprojekt och texterna säger det öppet —
-butiken, konstnärerna och motiven är påhittade. `url` är tom tills demon ligger
-publikt; fyll i den så dyker "Besök sajten"-knappen upp. Lägg riktiga
+butiken, konstnärerna och motiven är påhittade. Demon ligger på
+<https://erik-sandqvist.github.io/5.5-test/> och länkas från casesidan. Lägg riktiga
 kunduppdrag före Ramverk i listan när de finns.
 
 Varje case får en egen sida på `/sv/case/<slug>` och `/en/work/<slug>` med

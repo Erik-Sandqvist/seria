@@ -448,7 +448,7 @@ const sv = {
         title: "En posterbutik där tavlan provhängs innan den hamnar i varukorgen.",
         body: "Ramverk är en demobutik för posters som vi byggt för att visa hur vi arbetar med e-handel. Allt kretsar kring en fråga: hur ser tavlan ut hemma hos mig?",
         results: ["28 motiv", "4 vyer per produkt", "Ned till 320 px"],
-        url: "",
+        url: "https://erik-sandqvist.github.io/5.5-test/",
         detail: {
           lead: "Ramverk är ett eget konceptprojekt, inte ett kunduppdrag. Butiken, konstnärerna och motiven är påhittade, men flödet från startsida till varukorg är byggt fullt ut för att visa vad en modern webbutik kan göra.",
           role: "Koncept, design, utveckling",
