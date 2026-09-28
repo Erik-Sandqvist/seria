@@ -171,7 +171,7 @@ const sv = {
   hero: {
     titleLead: "Digitala lösningar,",
     titleAccent: "byggda Ordentligt.",
-    lead: "seria är en liten studio som bygger webbplatser och digitala verktyg åt företag som vill växa. Du får ett fast pris innan vi börjar, och en sajt som är i drift på några veckor.",
+    lead: "seria är en studio som bygger webbplatser och digitala verktyg åt företag som vill växa. Du får ett fast pris innan vi börjar, och en sajt som är i drift på några veckor.",
     primaryCta: "Boka ett samtal",
     secondaryCta: "Se priser",
     // Håll den här raden aktuell. En gammal tillgänglighetsnotis är värre
