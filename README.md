@@ -15,7 +15,8 @@ Sajten är komplett och körbar, men **inte lanserad**. Tre saker är öppna:
   för den här sajten och det här upplägget, men innehåller `[BYT UT]`-markörer
   och bör läsas av någon juridiskt kunnig innan ni går live — se
   [Juridiska sidor](#juridiska-sidor).
-- **Case-sidan är tom med flit.** Inga påhittade referensuppdrag.
+- **Case-sidan visar ett konceptprojekt.** Ramverk (repot `5.5-test`) är en egen
+  demobutik och presenteras som det, inte som ett kunduppdrag.
 
 ## Kom igång
 
@@ -55,7 +56,7 @@ Sök efter `BYT UT`.
 - [ ] `socials` — tomma länkar döljs automatiskt i footern
 - [ ] `team` — ditt namn, din roll, din bio och dina initialer
 - [ ] `RESEND_API_KEY` och `CONTACT_FROM_EMAIL` i `.env.local` (se `.env.example`)
-- [ ] Case-sidan — byt ut eller ta bort mallposten `Exempelkund AB`, se nedan
+- [ ] Case-sidan — lägg till `url` för Ramverk när demon är publicerad, se nedan
 - [ ] `[BYT UT]`-markörerna i `legal`-blocket i `sv.ts` och `en.ts`
       (organisationsnummer, och leverantörerna om du inte kör Vercel + Resend)
 - [ ] `legalUpdated` i `site.config.ts` när du ändrat i policyn
@@ -71,8 +72,11 @@ börjat"-läge med ett erbjudande om rabatt till de tre första kunderna. Det ä
 medvetet: hellre det än påhittade referensuppdrag. Så fort listan innehåller
 något byter sidan automatiskt till case-läget.
 
-**Listan innehåller just nu en mall**, `Exempelkund AB`. Den är ingen riktig
-referens — byt ut den mot ett skarpt uppdrag eller ta bort den före lansering.
+**Listan innehåller just nu Ramverk**, vår demobutik för posters (repot
+`5.5-test`). Det är ett eget konceptprojekt och texterna säger det öppet —
+butiken, konstnärerna och motiven är påhittade. `url` är tom tills demon ligger
+publikt; fyll i den så dyker "Besök sajten"-knappen upp. Lägg riktiga
+kunduppdrag före Ramverk i listan när de finns.
 
 Varje case får en egen sida på `/sv/case/<slug>` och `/en/work/<slug>` med
 uppdraget, arbetet, utfallet, nyckeltal och en metarad för roll, tid och

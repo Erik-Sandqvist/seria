@@ -437,43 +437,44 @@ const sv = {
     // den i stället för tomt-läget ovan. Håll samma fält och samma slug i en.ts
     // — sluggen är nyckeln som binder ihop språken och bygger /sv/case/<slug>.
     //
-    // Posten nedan är en MALL, inget riktigt uppdrag. Byt ut den mot ett skarpt
-    // case eller ta bort den helt före lansering; en tom lista ger tomt-läget.
+    // Ramverk är ett eget konceptprojekt (repot 5.5-test), inte ett kunduppdrag,
+    // och texterna säger det rakt ut. Lägg riktiga uppdrag före det här.
     items: [
       {
-        slug: "exempelkund", // BYT UT
-        client: "Exempelkund AB", // BYT UT
-        sector: "Bransch",
+        slug: "ramverk",
+        client: "Ramverk",
+        sector: "E-handel · konceptprojekt",
         year: "2026",
-        title: "Rubrik som säger vad projektet gav kunden.",
-        body: "Två meningar i listan: vad kunden behövde och vad de fick. Spara detaljerna till casesidan — det här är kroken, inte hela historien.",
-        results: ["Nyckeltal 01", "Nyckeltal 02", "Nyckeltal 03"],
+        title: "En posterbutik där tavlan provhängs innan den hamnar i varukorgen.",
+        body: "Ramverk är en demobutik för posters som vi byggt för att visa hur vi arbetar med e-handel. Allt kretsar kring en fråga: hur ser tavlan ut hemma hos mig?",
+        results: ["28 motiv", "4 vyer per produkt", "Ned till 320 px"],
         url: "",
         detail: {
-          lead: "En ingress på casesidan som ringar in uppdraget: vem kunden är, vad som stod på spel och vad arbetet resulterade i.",
-          role: "Design, utveckling, drift",
-          duration: "6 veckor",
-          stack: ["Next.js", "TypeScript", "Tailwind", "Vercel"],
+          lead: "Ramverk är ett eget konceptprojekt, inte ett kunduppdrag. Butiken, konstnärerna och motiven är påhittade, men flödet från startsida till varukorg är byggt fullt ut för att visa vad en modern webbutik kan göra.",
+          role: "Koncept, design, utveckling",
+          duration: "Några dagar",
+          stack: ["HTML", "CSS", "JavaScript", "SVG"],
           sections: [
             {
               h: "Uppdraget",
               body: [
-                "Beskriv utgångsläget. Vad hade kunden, vad fungerade inte, och vad var det som gjorde att de hörde av sig? Var konkret — en gammal sajt som laddade långsamt är en bättre öppning än ”de ville modernisera”.",
-                "Ta med begränsningarna också: tidsram, budget, befintliga system som skulle fortsätta fungera.",
+                "Posters är ett köp som avgörs av en känsla: passar den här på min vägg, i den här storleken, med den här ramen? De flesta butiker svarar med en produktbild mot vit bakgrund och lämnar resten till fantasin.",
+                "Vi ville bygga en butik som svarar på frågan direkt i gränssnittet, och göra det utan tunga ramverk eller byggsteg, så att sajten är snabb och lätt att förvalta.",
               ],
             },
             {
               h: "Arbetet",
               body: [
-                "Vad ni faktiskt gjorde, i den ordning det hände. Struktur och innehåll först, sedan design, sedan bygge. Nämn de val som var svåra och varför de blev som de blev.",
-                "Det är här ett case blir professionellt i stället för skrytsamt: läsaren ska förstå hur ni tänker, inte bara vad ni levererade.",
+                "Startsidan öppnar med en gallerivägg ovanför en soffa, där rubriken sitter som vinyltext på väggen. Besökaren kan byta väggfärg och klicka på tavlorna för att se motiv och pris. I gallerivägg-studion väljer man upplägg, tema, ram och väggfärg och lägger hela väggen i varukorgen med paketpris.",
+                "Produktsidan har fyra vyer: tavlan i vald ram, en skalenlig rumsvy ovanför en 220 cm bred soffa, närbild på pappersstrukturen och en detalj av ramhörnet. Priset räknas om direkt när man byter storlek, ram eller passepartout.",
+                "Alla 28 motiv genereras av ett eget skript som ritar dem som SVG och gör om texten till vektorbanor, så att de ser likadana ut på alla skärmar. Resten är ren HTML, CSS och JavaScript.",
               ],
             },
             {
               h: "Utfallet",
               body: [
-                "Vad hände efter lansering? Mät om det går — laddtid, konverteringar, förfrågningar, sparad tid internt. Siffrorna överst på sidan ska ha täckning här.",
-                "Har kunden sagt något bra får det gärna stå med, i deras egna ord.",
+                "En komplett butiksupplevelse: kollektion med filter och sortering, produktsida, sök med kortkommando, varukorgslåda med fri frakt-mätare, önskelista, ljust och mörkt tema och stöd för reducerad rörelse. Layouten håller från 320 px och uppåt.",
+                "Kassan är inte kopplad, eftersom det är en demo. Det är samma grund vi bygger på när en riktig butik ska ut: tydlig produktpresentation först, betalning och lager kopplas in efter kundens system.",
               ],
             },
           ],
