@@ -6,6 +6,11 @@ import {
   Eyebrow,
   Section,
 } from "@/components/ui/Primitives";
+import {
+  BrowserFrame,
+  hostOf,
+  PhoneFrame,
+} from "@/components/ui/DeviceFrame";
 import { Reveal } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/content";
 import { caseHref, href, type Locale } from "@/lib/routes";
@@ -85,6 +90,17 @@ export function CaseStudy({
               </ButtonLink>
             </Reveal>
           ) : null}
+
+          {item.images ? (
+            <Reveal delay={160} className="mt-16">
+              <BrowserFrame
+                shot={item.images.cover}
+                address={item.url ? hostOf(item.url) : undefined}
+                sizes="(min-width: 1152px) 1088px, 100vw"
+                priority
+              />
+            </Reveal>
+          ) : null}
         </Container>
       </Section>
 
@@ -102,6 +118,60 @@ export function CaseStudy({
               </Reveal>
             ))}
           </ul>
+
+          {item.images?.gallery.length ? (
+            <>
+              <Reveal className="mt-20">
+                <h2 className="text-sm text-bone-500">
+                  {dict.work.galleryLabel}
+                </h2>
+              </Reveal>
+              {/* Tolv kolumner: första fönstret tar åtta bredvid telefonens
+                  fyra, övriga fönster delar rad med sex var. */}
+              <div className="mt-8 grid gap-x-8 gap-y-14 border-t border-bone-300 pt-10 lg:grid-cols-12">
+                {item.images.gallery.map((shot, i, all) => {
+                  const mobile = shot.device === "mobile";
+                  // Första fönstret får plats bredvid telefonen, resten delar rad.
+                  const first =
+                    all.findIndex((s) => s.device === "desktop") === i;
+                  const span = mobile
+                    ? "lg:col-span-4"
+                    : first
+                      ? "lg:col-span-8"
+                      : "lg:col-span-6";
+                  return (
+                    <Reveal key={shot.src} delay={(i % 2) * 80} className={span}>
+                      <figure className="flex h-full flex-col">
+                        <div className="flex flex-1 items-start justify-center">
+                          {mobile ? (
+                            <PhoneFrame
+                              shot={shot}
+                              sizes="(min-width: 1024px) 16rem, 60vw"
+                              className="w-full max-w-[15rem]"
+                            />
+                          ) : (
+                            <BrowserFrame
+                              shot={shot}
+                              tone="bone"
+                              sizes={
+                                first
+                                  ? "(min-width: 1024px) 720px, 100vw"
+                                  : "(min-width: 1024px) 540px, 100vw"
+                              }
+                              className="w-full"
+                            />
+                          )}
+                        </div>
+                        <figcaption className="mt-4 max-w-md text-sm leading-relaxed text-ink-700">
+                          {shot.caption}
+                        </figcaption>
+                      </figure>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            </>
+          ) : null}
         </Container>
       </Section>
 

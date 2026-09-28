@@ -6,6 +6,7 @@ import {
   Section,
   SectionHeading,
 } from "@/components/ui/Primitives";
+import { BrowserFrame, hostOf } from "@/components/ui/DeviceFrame";
 import { Reveal } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/content";
 import { caseHref, href, type Locale } from "@/lib/routes";
@@ -58,6 +59,22 @@ export function Work({
             {items.map((item, i) => (
               <Reveal as="li" key={item.slug} delay={i * 70}>
                 <article className="grid gap-x-12 gap-y-8 border-b border-bone-300 py-10 lg:grid-cols-[1fr_16rem]">
+                  {item.images ? (
+                    <Link
+                      href={caseHref(locale, item.slug)}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="group block lg:col-span-2"
+                    >
+                      <BrowserFrame
+                        shot={item.images.cover}
+                        address={item.url ? hostOf(item.url) : undefined}
+                        sizes="(min-width: 1152px) 1088px, 100vw"
+                        tone="bone"
+                        className="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1"
+                      />
+                    </Link>
+                  ) : null}
                   <div>
                     <div className="flex flex-wrap items-center gap-2.5 text-sm text-bone-500">
                       <span className="text-ink-900">{item.client}</span>
