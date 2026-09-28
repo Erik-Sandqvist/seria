@@ -449,6 +449,48 @@ const sv = {
         body: "Ramverk är en demobutik för posters som vi byggt för att visa hur vi arbetar med e-handel. Allt kretsar kring en fråga: hur ser tavlan ut hemma hos mig?",
         results: ["28 motiv", "4 vyer per produkt", "Ned till 320 px"],
         url: "https://erik-sandqvist.github.io/5.5-test/",
+        images: {
+          cover: {
+            src: "/case/ramverk/hem.webp",
+            width: 1920,
+            height: 1200,
+            alt: "Ramverks startsida: rubriken som vinyltext på väggen och en gallerivägg ovanför en soffa.",
+          },
+          gallery: [
+              {
+                src: "/case/ramverk/studio.webp",
+                width: 1920,
+                height: 1200,
+                device: "desktop",
+                caption: "Gallerivägg-studion: välj upplägg, tema, ram och väggfärg och köp hela väggen till paketpris.",
+                alt: "Gallerivägg-studion i Ramverk med tre inramade tavlor ovanför en soffa och val för upplägg, tema, ram och väggfärg.",
+              },
+              {
+                src: "/case/ramverk/mobil.webp",
+                width: 780,
+                height: 1688,
+                device: "mobile",
+                caption: "Samma startsida i mobilen, ned till 320 px.",
+                alt: "Ramverks startsida i mobilformat.",
+              },
+              {
+                src: "/case/ramverk/rummet.webp",
+                width: 1920,
+                height: 1200,
+                device: "desktop",
+                caption: "Rumsvyn visar tavlan i skala ovanför en 220 cm bred soffa.",
+                alt: "Produktsidan för motivet Fjällvärld i rumsvyn, med storlek, ram och pris.",
+              },
+              {
+                src: "/case/ramverk/kollektion.webp",
+                width: 1920,
+                height: 1200,
+                device: "desktop",
+                caption: "Kollektionen med filter på färg, pris och kategori.",
+                alt: "Kollektionssidan i Ramverk med filter och tre postrar i rutnät.",
+              },
+          ],
+        },
         detail: {
           lead: "Ramverk är ett eget konceptprojekt, inte ett kunduppdrag. Butiken, konstnärerna och motiven är påhittade, men flödet från startsida till varukorg är byggt fullt ut för att visa vad en modern webbutik kan göra.",
           role: "Koncept, design, utveckling",
@@ -491,6 +533,21 @@ const sv = {
       results: string[];
       /** Länk till den publika sajten. Tom sträng döljer knappen. */
       url?: string;
+      /**
+       * Skärmbilder under public/. Omslaget visas i listan och överst på
+       * casesidan, galleriet på casesidan. Utan images visas bara text.
+       */
+      images?: {
+        cover: { src: string; width: number; height: number; alt: string };
+        gallery: {
+          src: string;
+          width: number;
+          height: number;
+          alt: string;
+          caption: string;
+          device: "desktop" | "mobile";
+        }[];
+      };
       detail: {
         lead: string;
         role: string;
@@ -500,6 +557,7 @@ const sv = {
       };
     }[],
     resultsLabel: "Resultat",
+    galleryLabel: "Från sajten",
     visitLabel: "Besök sajten",
     caseLabel: "Läs hela caset",
     backLabel: "Alla case",

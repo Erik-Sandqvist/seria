@@ -91,6 +91,12 @@ och `en.ts` ger korrekt hreflang mellan de två versionerna av samma case.
 3. Klart. Routing, sitemap, hreflang, JSON-LD och "nästa case"-länken följer
    automatiskt med.
 
+Skärmbilder läggs i `public/case/<slug>/` och listas i `images`: `cover` visas
+i listan och överst på casesidan i ett webbläsarfönster, `gallery` som ett
+bildgalleri under resultaten (`device: "mobile"` ger en telefonram). Utan
+`images` visas caset som ren text. Ramverks bilder är tagna med Playwright från
+demon i 1440 px bredd och sparade som webp.
+
 Tom `url` döljer "Besök sajten"-knappen. Med bara ett case i listan döljs
 "nästa case", som annars skulle peka på sig självt.
 
