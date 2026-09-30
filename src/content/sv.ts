@@ -192,7 +192,7 @@ const sv = {
         body: "All kod skrivs *från grunden* i Next.js, TypeScript och React. Ingen tung tema-mall som drar ner sajten och låser in dig hos en leverantör.",
       },
       {
-        title: "Laddtid är ett krav, inte en förhoppning",
+        title: "Laddtid är ett krav",
         body: "Varje sajt vi lämnar ifrån oss ska ladda på *under en sekund* i mobilen. Det syns i Google, och det syns i hur många som stannar kvar.",
       },
       {
