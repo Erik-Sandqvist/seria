@@ -170,7 +170,6 @@ const en: Dictionary = {
   },
 
   hero: {
-    eyebrow: `Web studio in ${site.city}`,
     titleLead: "Digital work,",
     titleAccent: "built to be taken seriously.",
     lead: "seria is a small studio building websites and digital tools for companies that want to grow. You get a fixed price before we start, and a site that is live within a few weeks.",

@@ -123,7 +123,7 @@ export default async function OpengraphImage({
             fontFamily: "sans-serif",
           }}
         >
-          <div style={{ display: "flex" }}>{dict.hero.eyebrow}</div>
+          <div style={{ display: "flex" }}>{dict.hero.location}</div>
           <div style={{ display: "flex" }}>
             {site.url.replace(/^https?:\/\//, "")}
           </div>

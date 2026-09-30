@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ButtonLink, Container, Eyebrow } from "@/components/ui/Primitives";
+import { ButtonLink, Container } from "@/components/ui/Primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/content";
 import { href, type Locale } from "@/lib/routes";
