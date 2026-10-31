@@ -202,10 +202,11 @@ const sv = {
     ],
   },
 
+
   cta: {
     title: "Boka ett samtal",
     lead: "Vill du veta mer om hur vi kan hjälpa ditt företag? Boka ett gratis samtal med oss.",
-    cta: "Boka ett samtal",
+    cta: "Boka ett samtal nu",
   },
 
   services: {
